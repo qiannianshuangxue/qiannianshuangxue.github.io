@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: AWD | 天河的随笔</title>
+  <title>C相关函数 | 天河的随笔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Bin">
-<meta property="og:type" content="website">
-<meta property="og:title" content="天河的随笔">
-<meta property="og:url" content="http://yoursite.com/tags/AWD/index.html">
+  <meta name="description" content="C函数">
+<meta name="keywords" content="C,PWN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C相关函数">
+<meta property="og:url" content="http://yoursite.com/2018/06/20/C相关函数/index.html">
 <meta property="og:site_name" content="天河的随笔">
+<meta property="og:description" content="C函数">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2018-06-20T05:24:15.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天河的随笔">
+<meta name="twitter:title" content="C相关函数">
+<meta name="twitter:description" content="C函数">
   
     <link rel="alternative" href="/atom.xml" title="天河的随笔" type="application/atom+xml">
   
@@ -38,9 +42,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false
       }
@@ -210,58 +214,200 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-C相关函数" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/04/18/强网杯线下总结/" class="archive-article-date">
-      <time datetime="2018-04-18T12:23:37.000Z" itemprop="datePublished">04-18</time>
+    <div class="article-meta">
+      <a href="/2018/06/20/C相关函数/" class="article-date">
+      <time datetime="2018-06-20T04:27:09.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/18/强网杯线下总结/">强网杯线下总结</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C相关函数
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/线下/">线下</a>
-    </div>
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWD/">AWD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PWN/">PWN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经验总结/">经验总结</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PWN/">PWN</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <a id="more"></a>
+<h3 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy"></a>memcpy</h3><p>void <em>memcpy(void </em>dest, const void *src, size_t n);<br>从src拷贝n个字节到dest<br>strcpy遇到\x00停止而memcpy不会</p>
+<h3 id="setvbuf"><a href="#setvbuf" class="headerlink" title="setvbuf"></a>setvbuf</h3><p>函数名: setvbuf<br>功 能: 把缓冲区与流相关<br>用 法: int setvbuf(FILE <em>stream, char </em>buf, int type, unsigned size);<br>参数：stream ：指向流的指针 ；<br>buf      ： 期望缓冲区的地址；<br>type    ： 期望缓冲区的类型：<br>_IOFBF(满缓冲）：当缓冲区为空时，从流读入数据。或者当缓冲区满时，向流写入数  据。<br>_IOLBF(行缓冲）：每次从流中读入一行数据或向流中写入一行数据。<br>_IONBF(无缓冲）：直接从流中读入数据或直接向流中写入数据，而没有缓冲区。<br>size    ：  缓冲区内字节的数量</p>
+<h3 id="memset"><a href="#memset" class="headerlink" title="memset"></a>memset</h3><p>void <em>memset(void </em>s, int ch, size_t n);<br>函数解释:将s中当前位置后面的n个字节 (typedef unsigned int size_t )用 ch 替换并返回 s 。<br>memset:作用是在一段内存块中填充某个给定的值，它是对较大的结构体或数组进行清零操作的一种最快方法 。</p>
+
+      
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/06/20/C相关函数/">C相关函数</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 天河 的个人博客">天河</a></p>
+        <p><span>发布时间:</span>2018年06月20日 - 12时27分</p>
+        <p><span>最后更新:</span>2018年06月20日 - 13时24分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/20/C相关函数/" title="C相关函数">http://yoursite.com/2018/06/20/C相关函数/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/06/20/C相关函数/　　作者: 天河" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/06/20/pwnable-writeup2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          pwnable_writeup2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/20/gdb使用经验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gdb使用经验</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#memcpy"><span class="toc-number">1.</span> <span class="toc-text">memcpy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setvbuf"><span class="toc-number">2.</span> <span class="toc-text">setvbuf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#memset"><span class="toc-number">3.</span> <span class="toc-text">memset</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
 
     
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'tianheshuangxue',
+      repo: 'tianheshuangxue.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/06/20/pwnable-writeup2/" title="上一篇: pwnable_writeup2">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/06/20/gdb使用经验/" title="下一篇: gdb使用经验">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/pwnable-writeup2/">pwnable_writeup2</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/C相关函数/">C相关函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/gdb使用经验/">gdb使用经验</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/linux下的特殊符号/">linux下的2特殊符号</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/18/linux权限笔记/">linux权限笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/pwnable-writeup/">pwnable_writeup</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/强网杯线下总结/">强网杯线下总结</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -326,17 +472,6 @@
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
