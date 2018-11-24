@@ -3,20 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>gdb使用经验 | 天河的随笔</title>
+  <title>Archives: 2018/11 | 天河的随笔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gdb使用查漏">
-<meta name="keywords" content="PWN,RE,GDB">
-<meta property="og:type" content="article">
-<meta property="og:title" content="gdb使用经验">
-<meta property="og:url" content="http://yoursite.com/2018/06/20/gdb使用经验/index.html">
+  <meta name="keywords" content="Bin">
+<meta property="og:type" content="website">
+<meta property="og:title" content="天河的随笔">
+<meta property="og:url" content="http://yoursite.com/archives/2018/11/index.html">
 <meta property="og:site_name" content="天河的随笔">
-<meta property="og:description" content="gdb使用查漏">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-06-20T03:35:29.118Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gdb使用经验">
-<meta name="twitter:description" content="gdb使用查漏">
+<meta name="twitter:title" content="天河的随笔">
   
     <link rel="alternative" href="/atom.xml" title="天河的随笔" type="application/atom+xml">
   
@@ -42,8 +38,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: true,
-          isArchive: false,
+          isPost: false,
+          isArchive: true,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -142,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/AWD/" style="font-size: 10px;">AWD</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/CTF/" style="font-size: 16.67px;">CTF</a> <a href="/tags/GDB/" style="font-size: 10px;">GDB</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PWN/" style="font-size: 20px;">PWN</a> <a href="/tags/RE/" style="font-size: 10px;">RE</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/writeup/" style="font-size: 13.33px;">writeup</a> <a href="/tags/经验总结/" style="font-size: 10px;">经验总结</a>
+                        <a href="/tags/AWD/" style="font-size: 10px;">AWD</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PWN/" style="font-size: 10px;">PWN</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/经验总结/" style="font-size: 10px;">经验总结</a>
                     </div>
                 </section>
                 
@@ -214,203 +210,58 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-gdb使用经验" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2018/06/20/gdb使用经验/" class="article-date">
-      <time datetime="2018-06-20T03:26:27.000Z" itemprop="datePublished">2018-06-20</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2018/11/24/kalilinux-install/" class="archive-article-date">
+      <time datetime="2018-11-24T09:35:09.000Z" itemprop="datePublished">11-24</time>
 </a>
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      gdb使用经验
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/11/24/kalilinux-install/">kalilinux install</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/RE/">RE</a>
-    </div>
-
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GDB/">GDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PWN/">PWN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RE/">RE</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <a id="more"></a>
-<h3 id="启动gdb"><a href="#启动gdb" class="headerlink" title="启动gdb"></a>启动gdb</h3><p>1、gdb <program><br>program也就是你的执行文件，一般在当然目录下。<br>2、gdb <program> core<br>用gdb同时调试一个运行程序和core文件，core是程序非法执行后core dump后产生<br>的文件。<br>3、gdb <program> <pid><br>如果你的程序是一个服务程序，那么你可以指定这个服务程序运行时的进程ID。gd<br>b会自动attach上去，并调试他。program应该在 PATH环境变量中搜索得到。</pid></program></program></program></p>
-<h3 id="设置运行参数"><a href="#设置运行参数" class="headerlink" title="设置运行参数"></a>设置运行参数</h3><p>set args 可指定运行时参数。（如：set args 10 20 30 40 50）<br>show args 命令可以查看设置好的运行参数。 </p>
-
-      
-      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
     </div>
-    
+
+
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
+    </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/06/20/gdb使用经验/">gdb使用经验</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 天河 的个人博客">天河</a></p>
-        <p><span>发布时间:</span>2018年06月20日 - 11时26分</p>
-        <p><span>最后更新:</span>2018年06月20日 - 11时35分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/06/20/gdb使用经验/" title="gdb使用经验">http://yoursite.com/2018/06/20/gdb使用经验/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/06/20/gdb使用经验/　　作者: 天河" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a href="/2018/06/20/C相关函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          C相关函数
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/06/20/linux下的特殊符号/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">linux下的2特殊符号</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动gdb"><span class="toc-number">1.</span> <span class="toc-text">启动gdb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置运行参数"><span class="toc-number">2.</span> <span class="toc-text">设置运行参数</span></a></li></ol>
-</div>
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-    }
-</script>
-
-
-
-
-
-<div class="bdsharebuttonbox">
-	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
-	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-
-
+  
+  
+    </div></section>
+  
 
     
-        <div id="gitments"></div>
-<script src="/js/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-      id: window.location.pathname,
-      owner: 'tianheshuangxue',
-      repo: 'tianheshuangxue.github.io',
-      oauth: {
-        client_id: '',
-        client_secret: '',
-      },
-    })
-    gitment.render('gitments')
-</script>
-    
 
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2018/06/20/C相关函数/" title="上一篇: C相关函数">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a href="/2018/06/20/linux下的特殊符号/" title="下一篇: linux下的2特殊符号">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/pwnable-writeup2/">pwnable_writeup2</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/C相关函数/">C相关函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/gdb使用经验/">gdb使用经验</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/linux下的特殊符号/">linux下的2特殊符号</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/18/linux权限笔记/">linux权限笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/pwnable-writeup/">pwnable_writeup</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/强网杯线下总结/">强网杯线下总结</a></li></ul>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-            }
-        })
-    </script>
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -475,6 +326,17 @@
         };
     })
 </script>
+
+    <button class="hide-labels">TAG 开关</button>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $(".article-info").toggle(200);
+            });
+        });
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
