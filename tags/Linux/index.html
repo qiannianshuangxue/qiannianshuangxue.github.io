@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Linux | 天河的随笔</title>
+  <title>Tag: linux | 天河的随笔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="Bin">
 <meta property="og:type" content="website">
 <meta property="og:title" content="天河的随笔">
-<meta property="og:url" content="http://yoursite.com/tags/Linux/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/linux/index.html">
 <meta property="og:site_name" content="天河的随笔">
 <meta property="og:locale" content="zh">
 <meta name="twitter:card" content="summary">
@@ -138,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/AWD/" style="font-size: 10px;">AWD</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PWN/" style="font-size: 10px;">PWN</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/经验总结/" style="font-size: 10px;">经验总结</a>
+                        <a href="/tags/CTF/" style="font-size: 20px;">CTF</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/PWN/" style="font-size: 20px;">PWN</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/writeup/" style="font-size: 20px;">writeup</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
                     </div>
                 </section>
                 
@@ -227,27 +227,27 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
-              <a href="/2018/11/24/kalilinux-install/" class="archive-article-date">
-      <time datetime="2018-11-24T09:35:09.000Z" itemprop="datePublished">11-24</time>
+              <a href="/2018/06/20/linux下的特殊符号与shell编程/" class="archive-article-date">
+      <time datetime="2018-06-20T02:53:58.000Z" itemprop="datePublished">06-20</time>
 </a>
         </div>
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/24/kalilinux-install/">kalilinux install</a>
+      <a class="archive-article-title" href="/2018/06/20/linux下的特殊符号与shell编程/">linux下的特殊符号与shell编程</a>
     </h1>
   
 
         <div class="article-info info-on-archive">
           
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
+    <a class="article-category-link" href="/categories/writeup/">writeup</a>
     </div>
 
 
           
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
     </div>
 
         </div>
@@ -337,6 +337,40 @@
             });
         });
     </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>pt>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

