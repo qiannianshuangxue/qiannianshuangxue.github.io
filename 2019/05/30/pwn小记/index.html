@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>pwn小记 | 天河的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="pwn">
+<meta name="keywords" content="bin,pwn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pwn小记">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/pwn小记/index.html">
+<meta property="og:site_name" content="天河的随笔">
+<meta property="og:description" content="pwn">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-06-07T03:19:47.459Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pwn小记">
+<meta name="twitter:description" content="pwn">
+  
+    <link rel="alternative" href="/atom.xml" title="天河的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">天河</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">猫会有的,妹子也会有的</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="/ tianhe@chamd5.org" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiannianshuangxue" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/bin/" style="font-size: 10px;">bin</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://pcat.cnblogs.com/">pact</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我因世界而改变,世界也因我而改变。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">天河</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">天河</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">猫会有的,妹子也会有的</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="/ tianhe@chamd5.org" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiannianshuangxue" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-pwn小记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/30/pwn小记/" class="article-date">
+      <time datetime="2019-05-30T14:24:21.000Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      pwn小记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bin/">bin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pwn/">pwn</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>做个小笔记</p>
+</blockquote>
+<h1 id="防护技术"><a href="#防护技术" class="headerlink" title="防护技术"></a>防护技术</h1><h2 id="canary"><a href="#canary" class="headerlink" title="canary"></a>canary</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>又名金丝雀,在ebp下面也就是低地址的地方,程序结束的时候检测值是否被改变,被修改会走向__stack_chk_fail</p>
+<p>fs寄存器指向当前栈的 TLS 结构 TLS的值由security_init初始化</p>
+<p>每次重启后不同,同进程不同线程也是不同的但是fork函数会拷贝父进程内存因此相同</p>
+<h3 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h3><p>劫持__stack_chk_fail函数或者覆盖 TLS 中储存的 Canary 值 </p>
+<h2 id="NX"><a href="#NX" class="headerlink" title="NX"></a>NX</h2><p>NX(Non-Executable Memory，不可执行内存)类似于 windows 中的 DEP(Data Execution Prevention，数据执行保护)。Windows系统从xp sp2开始启用DEP。使用gcc在汇编时 –noexecstack 或在链接时 -z noexecstack 或者使用execstack修改ELF文件中 PT_GNU_STACK中的p_flags 可以设置程序是否需要具有可执行权限的堆栈。cat /proc/cpuinfo 在 flags 中如果有NX表示CPU支持NX。</p>
+<h2 id="RELRO"><a href="#RELRO" class="headerlink" title="RELRO"></a>RELRO</h2><p>Built with RELRORELRO(RELocation Read-Only，只读重定位)让加载器将重定位表中加载时解析的符号标记为只读，这减少了GOT覆写攻击的面积。</p>
+<p>RELRO可以分为Partial RELRO(部分RELRO)和 Full RELRO (完整RELRO)。开启Partial RELRO的话GOT表是可写的；开启 FULL RELRO 的话GOT表是只读的。</p>
+<p>从Fedora 23开始所有软件包都已启用了Full RELRO。开启-Wl,-z,relro选项即可开启Partial RELRO；开启-Wl,-z,relro,-z,now选项即可开启Full RELRO。</p>
+<h2 id="PIE"><a href="#PIE" class="headerlink" title="PIE"></a>PIE</h2><p> PIE(Position Independent Executables，位置无关可执行文件)</p>
+<p>在linux上ASLR主要包括栈地址随机化、LIBS/MMAP随机化、EXEC随机化、BRK随机化、VDSO随机化。</p>
+<p>1.1 栈地址随机化：2.6.15内核开始支持。1.2 </p>
+<p>LIBS/MMAP随机化：程序每次执行动态库都被加载到不同的内存位置。2.6.15内核开始支持。</p>
+<p>1.3 EXEC随机化：程序每次执行都将加载到不同的内存位置。2.6.25内核开始支持(会在第二点Built as PIE中详细讨论)。</p>
+<p>1.4 BRK随机化：linux系统中brk和mmap这两个系统调用用来分配内存。当brk ASLR关闭的时候，start_brk和brk都是指向bss段的尾部的；当brk ASLR开启的时候，start_brk和brk初始位置是bss段的尾部加一个随机的偏移。2.6.26内核开始支持。</p>
+<p>1.5 VDSO随机化：VDSO(Virtual Dynamically-linked Shared Object，虚拟动态共享库)将内核态的调用映射到用户态的地址空间中，使得调用开销更小，路径更好。</p>
+<p>不同 gcc 版本对于 PIE 的默认配置不同，我们可以使用命令gcc -v查看 gcc 默认的开关情况。如果含有–enable-default-pie参数则代表 PIE 默认已开启，需要在编译指令中添加参数-no-pie。</p>
+<p>Linux 平台下还有地址空间分布随机化（ASLR）的机制。简单来说即使可执行文件开启了 PIE 保护，还需要系统开启 ASLR 才会真正打乱基址，否则程序运行时依旧会在加载一个固定的基址上（不过和 No PIE 时基址不同）。</p>
+<p>我们可以通过修改 /proc/sys/kernel/randomize_va_space 来控制 ASLR 启动与否，具体的选项有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0，关闭 ASLR，没有随机化。栈、堆、.so 的基地址每次都相同。</span><br><span class="line">1，普通的 ASLR。栈基地址、mmap 基地址、.so 加载基地址都将被随机化，但是堆基地址没有随机化。</span><br><span class="line">2，增强的 ASLR，在 1 的基础上，增加了堆基地址随机化。</span><br><span class="line"></span><br><span class="line">我们可以使用echo 0 &gt; /proc/sys/kernel/randomize_va_space关闭 Linux 系统的 ASLR，类似的，也可以配置相应的参数。</span><br></pre></td></tr></table></figure></p>
+<h3 id="GCC编译"><a href="#GCC编译" class="headerlink" title="GCC编译"></a>GCC编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-fstack-protector 启用保护，不过只为局部变量中含有数组的函数插入保护</span><br><span class="line">-fstack-protector-all 启用保护，为所有函数插入保护</span><br><span class="line">-fstack-protector-strong</span><br><span class="line">-fstack-protector-explicit 只对有明确stack_protect attribute的函数开启保护</span><br><span class="line">-fno-stack-protector 禁用保护.</span><br></pre></td></tr></table></figure>
+<h2 id="内核防护技术"><a href="#内核防护技术" class="headerlink" title="内核防护技术"></a>内核防护技术</h2><p>所有发行版中都有的</p>
+<h3 id="KPTI"><a href="#KPTI" class="headerlink" title="KPTI"></a>KPTI</h3><p>今年年初的CPU漏洞让 KPTI(Kernel PageTable Isolation，内核页表隔离)进入了人们的视野。进程地址空间被分成了内核地址空间和用户地址空间，其中内核地址空间映射到了整个物理地址空间，而用户地址空间只能映射到指定的物理地址空间。内核地址空间和用户地址空间共用一个页全局目录表。为了彻底防止用户程序获取内核数据，可以令内核地址空间和用户地址空间使用两组页表集。</p>
+<h3 id="KASLR"><a href="#KASLR" class="headerlink" title="KASLR"></a>KASLR</h3><p>KASLR中的K指kernel，也就是内核地址空间布局随机化。可以在内核命令行中加入nokaslr关闭KASLR。</p>
+<h3 id="SMAP-SMEP"><a href="#SMAP-SMEP" class="headerlink" title="SMAP/SMEP"></a>SMAP/SMEP</h3><p>SMAP(Supervisor Mode Access Prevention，管理模式访问保护)和SMEP(Supervisor Mode Execution Prevention，管理模式执行保护)的作用分别是禁止内核访问用户空间的数据和禁止内核执行用户空间的代码。arm里面叫 PXN(Privilege Execute Never) 和PAN(Privileged Access Never)。</p>
+<h3 id="Stack-Protector"><a href="#Stack-Protector" class="headerlink" title="Stack Protector"></a>Stack Protector</h3><p>由于内核空间和用户空间共享虚拟内存地址，因此需要防止用户空间mmap的内存从0开始，从而缓解NULL解引用攻击。windows系统从win8开始禁止在零页分配内存。</p>
+<h1 id="攻击技术"><a href="#攻击技术" class="headerlink" title="攻击技术"></a>攻击技术</h1><h2 id="栈迁移"><a href="#栈迁移" class="headerlink" title="栈迁移"></a>栈迁移</h2><p>适用于溢出空间不够的情况</p>
+<p>通过制造虚假的ebp 然后leave_ret 把esp值改成fake_ebp(我们输入的)<br>leave_ret 会把ebp的地址给esp</p>
+<h2 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h2><h3 id="栈结构"><a href="#栈结构" class="headerlink" title="栈结构"></a>栈结构</h3><p>X86 函数参数在函数返回地址的上方</p>
+<p>X64 System V AMD64 ABI (Linux、FreeBSD、macOS 等采用) 中前六个整型或指针参数依次保存在 RDI, RSI, RDX, RCX, R8 和 R9 寄存器中，如果还有更多的参数的话才会保存在栈上。内存地址不能大于 0x00007FFFFFFFFFFF，6 个字节长度，否则会抛出异常。</p>
+<p><a href="https://www.cnblogs.com/clover-toeic/p/3755401.html" target="_blank" rel="noopener">https://www.cnblogs.com/clover-toeic/p/3755401.html</a><br><a href="https://www.cnblogs.com/clover-toeic/p/3756668.html" target="_blank" rel="noopener">https://www.cnblogs.com/clover-toeic/p/3756668.html</a></p>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>向栈中某一变量写入的字节,大于变量本身申请的字节,导致与其相邻的栈上的数据发生改变</p>
+<h3 id="利用-1"><a href="#利用-1" class="headerlink" title="利用"></a>利用</h3><p>最普遍的利用是覆盖返回地址,控制程序流程</p>
+<p>覆盖栈上变量的内容,这时就需要更精密的计算了</p>
+<p>覆盖bss段某个变量的内容</p>
+<h4 id="ROP"><a href="#ROP" class="headerlink" title="ROP"></a>ROP</h4><p>ROP的利用条件是程序存在溢出，可以控制返回地址,出自之外还需要有可以使用的gadgets 以及对应的gadgets地址。如果gadgets地址是动态的则需要想办法获取地址。</p>
+<h5 id="ret2text"><a href="#ret2text" class="headerlink" title="ret2text"></a>ret2text</h5><p>ret2text 即控制程序执行程序本身已有的的代码 (.text)。</p>
+<h5 id="ret2shellcode"><a href="#ret2shellcode" class="headerlink" title="ret2shellcode"></a>ret2shellcode</h5><p>ret2shellcode，即控制程序执行 shellcode 代码。一般情况下shellcode也需要我们自己填充,且对应shellcode位置的空间是可执行的</p>
+<p>gdb 可通过vmmap查看对应内存是否可执行。</p>
+<h5 id="ret2syscall"><a href="#ret2syscall" class="headerlink" title="ret2syscall"></a>ret2syscall</h5><p>ret2syscall，即控制程序执行系统调用，获取 shell。<br>只要我们把对应获取 shell 的系统调用的参数放到对应的寄存器中，那么我们在执行 int 0x80 就可执行对应的系统调用。</p>
+<p>系统调用表<br><a href="https://blog.csdn.net/xiaominthere/article/details/17287965" target="_blank" rel="noopener">https://blog.csdn.net/xiaominthere/article/details/17287965</a></p>
+<h5 id="ret2libc"><a href="#ret2libc" class="headerlink" title="ret2libc"></a>ret2libc</h5><p>ret2libc 即控制函数的执行 libc 中的函数，通常是返回至某个函数的 plt 处或者函数的具体位置 (即函数对应的 got 表项的内容)。<br>在使用中经常需要获得对应libc的版本以及函数在其中的偏移</p>
+<h5 id="ret2csu"><a href="#ret2csu" class="headerlink" title="ret2csu"></a>ret2csu</h5><p>在 64 位程序中，函数的前 6 个参数是通过寄存器传递的，但是大多数时候，我们很难找到每一个寄存器对应的 gadgets。 这时候，我们可以利用 x64 下的 __libc_csu_init 中的 gadgets。这个函数是用来对 libc 进行初始化操作的，而一般的程序都会调用 libc 函数<br><a href="https://www.cnblogs.com/Ox9A82/p/5487725.html" target="_blank" rel="noopener">https://www.cnblogs.com/Ox9A82/p/5487725.html</a></p>
+<p>可以通过错位获取其他的gadget</p>
+<h5 id="ret2reg"><a href="#ret2reg" class="headerlink" title="ret2reg"></a>ret2reg</h5><p>查看溢出函返回时哪个寄存值指向溢出缓冲区空间</p>
+<p>然后反编译二进制，查找 call reg 或者 jmp reg 指令，将 EIP 设置为该指令地址</p>
+<p>reg 所指向的空间上注入 Shellcode (需要确保该空间是可以执行的，但通常都是栈上的)</p>
+<h5 id="BROP"><a href="#BROP" class="headerlink" title="BROP"></a>BROP</h5><p>BROP 是没有对应应用程序的源代码或者二进制文件下，对程序进行攻击，劫持程序的执行流。</p>
+<p>源程序必须存在栈溢出漏洞，以便于攻击者可以控制程序流程。<br>服务器端的进程在崩溃之后会重新启动，并且重新启动的进程的地址与先前的地址一样（这也就是说即使程序有 ASLR 保护，但是其只是在程序最初启动的时候有效果）。目前 nginx, MySQL, Apache, OpenSSH 等服务器应用都是符合这种特性的。</p>
+<p>判断栈溢出长度</p>
+<p>暴力枚举</p>
+<p>Stack Reading</p>
+<p>获取栈上的数据来泄露 canaries，以及 ebp 和返回地址。</p>
+<p>Blind ROP</p>
+<p>找到足够多的 gadgets 来控制输出函数的参数，并且对其进行调用，比如说常见的 write 函数以及 puts 函数。</p>
+<p>Build the exploit</p>
+<p>利用输出函数来 dump 出程序以便于来找到更多的 gadgets，从而可以写出最后的 exploit。</p>
+<p>获取Canary</p>
+<p>所以在 32 位的情况下，我们最多需要爆破 1024 次，64 位最多爆破 2048 次。</p>
+<h5 id="ret2-dl-runtime-resolve"><a href="#ret2-dl-runtime-resolve" class="headerlink" title="ret2_dl_runtime_resolve"></a>ret2_dl_runtime_resolve</h5><p>控制解析的函数</p>
+<p>linux 中是利用_dl_runtime_resolve(link_map_obj, reloc_index) 来对动态链接的函数进行重定位的。</p>
+<p>可以使用roputils集成好的工具</p>
+<h6 id="利用-2"><a href="#利用-2" class="headerlink" title="利用"></a>利用</h6><p>控制程序执行 dl_resolve 函数</p>
+<p>给定 Link_map 以及 index 两个参数。</p>
+<p>当然我们可以直接给定 plt0 对应的汇编代码，这时，我们就只需要一个 index 就足够了。</p>
+<p>控制 index 的大小，以便于指向自己所控制的区域，从而伪造一个指定的重定位表项。</p>
+<p>伪造重定位表项，使得重定位表项所指的符号也在自己可以控制的范围内。</p>
+<p>伪造符号内容，使得符号对应的名称也在自己可以控制的范围内。</p>
+<h5 id="SROP-（Sigreturn-Oriented-Programming"><a href="#SROP-（Sigreturn-Oriented-Programming" class="headerlink" title="SROP （Sigreturn Oriented Programming)"></a>SROP （Sigreturn Oriented Programming)</h5><p>需要先了解 signal机制</p>
+<p>signal 机制是类 unix 系统中进程之间相互传递信息的一种方法。一般，我们也称其为软中断信号，或者软中断。比如说，进程之间可以通过系统调用 kill 来发送软中断信号。</p>
+<p>signal机制<br>内核向某个进程发送 signal 机制，该进程会被暂时挂起，进入内核态。</p>
+<p>内核会为该进程保存相应的上下文，主要是将所有寄存器压入栈中，以及压入 signal 信息，以及指向 sigreturn 的系统调用地址。需要注意的是，这一部分是在用户进程的地址空间的。之后会跳转到注册过的 signal handler 中处理相应的 signal。因此，当 signal handler 执行完之后，就会执行 sigreturn 代码。</p>
+<p>signal handler 返回后，内核为执行 sigreturn 系统调用，为该进程恢复之前保存的上下文，其中包括将所有压入的寄存器，重新 pop 回对应的寄存器，最后恢复进程的执行。其中，32 位的 sigreturn 的调用号为 77，64 位的系统调用号为 15。</p>
+<p>原理如下</p>
+<p>Signal Frame 被保存在用户的地址空间中，所以用户是可以读写的。</p>
+<p>由于内核与信号处理程序无关 (kernel agnostic about signal handlers)，它并不会去记录这个 signal 对应的 Signal Frame，所以当执行 sigreturn 系统调用时，此时的 Signal Frame 并不一定是之前内核为用户进程保存的 Signal Frame。</p>
+<p>伪造一个 Signal Frame 当系统执行完 sigreturn 系统调用之后，会执行一系列的 pop 指令以便于恢复相应寄存器的值，当执行到 rip 时，就会将程序执行流指向 syscall 地址</p>
+<p>system call chains</p>
+<p>控制栈指针。</p>
+<p>把原来 rip 指向的syscall gadget 换成syscall; ret gadget。</p>
+<p>完成攻击的条件:</p>
+<p>可以通过栈溢出控制栈内容</p>
+<p>知道对应地址：</p>
+<p>“/bin/sh”</p>
+<p>Signal Frame</p>
+<p>syscall</p>
+<p>sigreturn</p>
+<p>需要有够大的空间来塞下整个 sigal frame</p>
+<p>值得一说的是，对于 sigreturn 系统调用来说，在 64 位系统中，sigreturn 系统调用对应的系统调用号为 15，只需要 RAX=15，并且执行 syscall 即可实现调用 syscall 调用。而 RAX 寄存器的值又可以通过控制某个函数的返回值来间接控制，比如说 read 函数的返回值为读取的字节数。</p>
+<p>在目前的 pwntools 中已经集成了对于 srop 的攻击。</p>
+<h5 id="ret2VDSO"><a href="#ret2VDSO" class="headerlink" title="ret2VDSO"></a>ret2VDSO</h5><p>这是因为有些系统调用经常被用户使用，这就会出现大量的用户态与内核态切换的开销。通过 vdso，我们可以大量减少这样的开销，同时也可以使得我们的路径更好。这里路径更好指的是，我们不需要使用传统的 int 0x80 来进行系统调用，不同的处理器实现了不同的快速系统调用指令 。intel 实现了 sysenter，sysexit ，amd 实现了 syscall，sysre</p>
+<h5 id="COP"><a href="#COP" class="headerlink" title="COP"></a>COP</h5><h5 id="JOP"><a href="#JOP" class="headerlink" title="JOP"></a>JOP</h5><h5 id="stack-pivoting¶"><a href="#stack-pivoting¶" class="headerlink" title="stack pivoting¶"></a>stack pivoting¶</h5><p>stack pivoting，正如它所描述的，该技巧就是劫持栈指针指向攻击者所能控制的内存处，然后再在相应的位置进行 ROP。</p>
+<p>可以控制的栈溢出的字节数较少，难以构造较长的 ROP 链</p>
+<p>开启了 PIE 保护，栈地址未知，我们可以将栈劫持到已知的区域。</p>
+<p>其它漏洞难以利用，我们需要进行转换，比如说将栈劫持到堆空间，从而在堆上写 rop 及进行堆漏洞利用</p>
+<h5 id="转移堆"><a href="#转移堆" class="headerlink" title="转移堆"></a>转移堆</h5><h5 id="partial-overwrite"><a href="#partial-overwrite" class="headerlink" title="partial overwrite"></a>partial overwrite</h5><p>我们知道, 在开启了随机化（ASLR，PIE）后, 无论高位的地址如何变化，低 12 位的页内偏移始终是固定的, 也就是说如果我们能更改低位的偏移, 就可以在一定程度上控制程序的执行流, 绕过 PIE 保护。</p>
+<h5 id="frame-faking"><a href="#frame-faking" class="headerlink" title="frame faking"></a>frame faking</h5><p>栈迁移</p>
+<h5 id="Stack-smash"><a href="#Stack-smash" class="headerlink" title="Stack smash"></a>Stack smash</h5><p>覆盖argv[0]指针出发canary</p>
+<h2 id="格式化字符串漏洞"><a href="#格式化字符串漏洞" class="headerlink" title="格式化字符串漏洞"></a>格式化字符串漏洞</h2><h3 id="利用-3"><a href="#利用-3" class="headerlink" title="利用"></a>利用</h3><h4 id="程序崩溃"><a href="#程序崩溃" class="headerlink" title="程序崩溃"></a>程序崩溃</h4><p>输入一串%s即可因为栈上不可能是一串合法的地址</p>
+<h4 id="泄露内存"><a href="#泄露内存" class="headerlink" title="泄露内存"></a>泄露内存</h4><p>泄露栈内存</p>
+<p>获取某个变量的值</p>
+<p>获取某个变量对应地址的内存</p>
+<p>泄露任意地址内存</p>
+<p>利用 GOT 表得到 libc 函数地址，进而获取 libc，进而获取其它 libc 函数地址</p>
+<p>盲打，dump 整个程序，获取有用信息。</p>
+<p>任意地址的泄露</p>
+<p>那么由于我们可以控制该格式化字符串，如果我们知道该格式化字符串在输出函数调用时是第几个参数，这里假设该格式化字符串相对函数调用为第 k 个参数。那我们就可以通过如下的方式来获取某个指定地址 addr 的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addr%k$s</span><br></pre></td></tr></table></figure></p>
+<p>覆盖变量的过程</p>
+<p>确定覆盖地址<br>确定相对偏移<br>进行覆盖</p>
+<p>这样，第 6 个参数处的值就是存储变量 c 的地址，我们便可以利用 %n 的特征来修改 c 的值。payload 如下</p>
+<p>[addr of c]%012d%6$n</p>
+<p>覆盖大地址（按字节覆盖）<br>p32(0x0804A028)+p32(0x0804A029)+p32(0x0804A02a)+p32(0x0804A02b)+pad1+’%6$n’+pad2+’%7$n’+pad3+’%8$n’+pad4+’%9$n’</p>
+<h2 id="堆利用"><a href="#堆利用" class="headerlink" title="堆利用"></a>堆利用</h2><h3 id="堆实现原理"><a href="#堆实现原理" class="headerlink" title="堆实现原理"></a>堆实现原理</h3><p>在程序运行过程中，堆可以提供动态分配的内存，允许程序申请大小未知的内存。堆其实就是程序虚拟地址空间的一块连续的线性区域，它由低地址向高地址方向增长。我们一般称管理堆的那部分程序为堆管理器。</p>
+<p>堆管理器处于用户程序与内核中间，主要做以下工作</p>
+<p>响应用户的申请内存请求，向操作系统申请内存，然后将其返回给用户程序。同时，为了保持内存管理的高效性，内核一般都会预先分配很大的一块连续的内存，然后让堆管理器通过某种算法管理这块内存。只有当出现了堆空间不足的情况，堆管理器才会再次与操作系统进行交互。</p>
+<p>管理用户所释放的内存。一般来说，用户释放的内存并不是直接返还给操作系统的，而是由堆管理器进行管理。这些释放的内存可以来响应用户新申请的内存的请求。</p>
+<p>需要注意的是，在内存分配与使用的过程中，Linux 有这样的一个基本内存管理思想，只有当真正访问一个地址的时候，系统才会建立虚拟页面与物理页面的映射关系。 所以虽然操作系统已经给程序分配了很大的一块内存，但是这块内存其实只是虚拟内存。只有当用户使用到相应的内存时，系统才会真正分配物理页面给用户使用。</p>
+<p>无论是 malloc 函数还是 free 函数，我们动态申请和释放内存时，都经常会使用，但是它们并不是真正与系统交互的函数。这些函数背后的系统调用主要是 (s)brk 函数以及 mmap, munmap 函数。</p>
+<p>在原来的 dlmalloc 实现中，当两个线程同时要申请内存时，只有一个线程可以进入临界区申请内存，而另外一个线程则必须等待直到临界区中不再有线程。这是因为所有的线程共享一个堆。在 glibc 的 ptmalloc 实现中，比较好的一点就是支持了多线程的快速访问。在新的实现中，所有的线程共享多个堆。<br>主线程的叫内存main_arena<br>在申请释放内存后main_arena不会回收,其他线程也一样</p>
+<h3 id="相关数据结构"><a href="#相关数据结构" class="headerlink" title="相关数据结构"></a>相关数据结构</h3><h4 id="malloc-chunk"><a href="#malloc-chunk" class="headerlink" title="malloc_chunk"></a>malloc_chunk</h4><p>在程序的执行过程中，我们称由 malloc 申请的内存为 chunk 。这块内存在 ptmalloc 内部用 malloc_chunk 结构体来表示。当程序申请的 chunk 被 free 后，会被加入到相应的空闲管理列表中。</p>
+<p>非常有意思的是，无论一个 chunk 的大小如何，处于分配状态还是释放状态，它们都使用一个统一的结构。虽然它们使用了同一个数据结构，但是根据是否被释放，它们的表现形式会有所不同。</p>
+<p>结构如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">struct malloc_chunk &#123;</span><br><span class="line"></span><br><span class="line">INTERNAL_SIZE_T      prev_size;  /* Size of previous chunk (if free).  */</span><br><span class="line">INTERNAL_SIZE_T      size;       /* Size in bytes, including overhead. */</span><br><span class="line"></span><br><span class="line">struct malloc_chunk* fd;         /* double links -- used only if free. */</span><br><span class="line">struct malloc_chunk* bk;</span><br><span class="line"></span><br><span class="line">/* Only used for large blocks: pointer to next larger size.  */</span><br><span class="line">struct malloc_chunk* fd_nextsize; /* double links -- used only if free. */</span><br><span class="line">struct malloc_chunk* bk_nextsize;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">每个字段的具体的解释如下</span><br><span class="line"></span><br><span class="line">prev_size, 如果该 chunk 的物理相邻的前一地址 chunk（两个指针的地址差值为前一 chunk 大小）是空闲的话，那该字段记录的是前一个 chunk 的大小 (包括 chunk 头)。否则，该字段可以用来存储物理相邻的前一个 chunk 的数据。这里的前一 chunk 指的是较低地址的 chunk 。</span><br><span class="line">size ，该 chunk 的大小，大小必须是 2 * SIZE_SZ 的整数倍。如果申请的内存大小不是 2 * SIZE_SZ 的整数倍，会被转换满足大小的最小的 2 * SIZE_SZ 的倍数。32 位系统中，SIZE_SZ 是 4；64 位系统中，SIZE_SZ 是 8。 该字段的低三个比特位对 chunk 的大小没有影响，它们从高到低分别表示</span><br><span class="line">NON_MAIN_ARENA，记录当前 chunk 是否不属于主线程，1 表示不属于，0 表示属于。</span><br><span class="line">IS_MAPPED，记录当前 chunk 是否是由 mmap 分配的。</span><br><span class="line">PREV_INUSE，记录前一个 chunk 块是否被分配。一般来说，堆中第一个被分配的内存块的 size 字段的 P 位都会被设置为 1，以便于防止访问前面的非法内存。当一个 chunk 的 size 的 P 位为 0 时，我们能通过 prev_size 字段来获取上一个 chunk 的大小以及地址。这也方便进行空闲 chunk 之间的合并。</span><br><span class="line">fd，bk。 chunk 处于分配状态时，从 fd 字段开始是用户的数据。chunk 空闲时，会被添加到对应的空闲管理链表中，其字段的含义如下</span><br><span class="line">fd 指向下一个（非物理相邻）空闲的 chunk</span><br><span class="line">bk 指向上一个（非物理相邻）空闲的 chunk</span><br><span class="line">通过 fd 和 bk 可以将空闲的 chunk 块加入到空闲的 chunk 块链表进行统一管理</span><br><span class="line">fd_nextsize， bk_nextsize，也是只有 chunk 空闲的时候才使用，不过其用于较大的 chunk（large chunk）。</span><br><span class="line">fd_nextsize 指向前一个与当前 chunk 大小不同的第一个空闲块，不包含 bin 的头指针。</span><br><span class="line">bk_nextsize 指向后一个与当前 chunk 大小不同的第一个空闲块，不包含 bin 的头指针。</span><br><span class="line">一般空闲的 large chunk 在 fd 的遍历顺序中，按照由大到小的顺序排列。这样做可以避免在寻找合适 chunk 时挨个遍历。</span><br><span class="line"></span><br><span class="line">前两个字段称为 chunk header，后面的部分称为 user data。每次 malloc 申请得到的内存指针，其实指向 user data 的起始处。</span><br><span class="line">可以发现，如果一个 chunk 处于 free 状态，那么会有两个位置记录其相应的大小</span><br><span class="line"></span><br><span class="line">本身的 size 字段会记录，</span><br><span class="line"></span><br><span class="line">它后面的 chunk 会记录。</span><br></pre></td></tr></table></figure></p>
+<p>chunk 与 mem 指针头部的转换</p>
+<p>mem 指向用户得到的内存的起始位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define chunk2mem(p) ((void *) ((char *) (p) + 2 * SIZE_SZ))</span><br><span class="line">#define mem2chunk(mem) ((mchunkptr)((char *) (mem) -2 * SIZE_SZ))</span><br></pre></td></tr></table></figure></p>
+<p>在具体的实现中，ptmalloc 采用分箱式方法对空闲的 chunk 进行管理。首先，它会根据空闲的 chunk 的大小以及使用状态将 chunk 初步分为 4 类：fast bins，small bins，large bins，unsorted bin。每类中仍然有更细的划分，相似大小的 chunk 会用双向链表链接起来。也就是说，在每类 bin 的内部仍然会有多个互不相关的链表来保存不同大小的 chunk。</p>
+<p>使用数组存放四个类型的bin</p>
+<p>第一个为 unsorted bin，字如其面，这里面的 chunk 没有进行排序，存储的 chunk 比较杂。</p>
+<p>索引从 2 到 63 的 bin 称为 small bin，同一个 small bin 链表中的 chunk 的大小相同。两个相邻索引的 small bin 链表中的 chunk 大小相差的字节数为 2 个机器字长，即 32 位相差 8 字节，64 位相差 16 字节。</p>
+<p>small bins 后面的 bin 被称作 large bins。large bins 中的每一个 bin 都包含一定范围内的 chunk，其中的 chunk 按 fd 指针的顺序从大到小排列。相同大小的 chunk 同样按照最近使用顺序排列。</p>
+<p>需要注意的是，并不是所有的 chunk 被释放后就立即被放到 bin 中。ptmalloc 为了提高分配的速度，会把一些小的 chunk 先放到 fast bins 的容器内。而且，fastbin 容器中的 chunk 的使用标记总是被置位的，所以不满足上面的原则。</p>
+<p>unsorted bin 处于我们之前所说的 bin 数组下标 1 处。故而 unsorted bin 只有一个链表。unsorted bin 中的空闲 chunk 处于乱序状态，主要有两个来源</p>
+<p>当一个较大的 chunk 被分割成两半后，如果剩下的部分大于 MINSIZE，就会被放到 unsorted bin 中。<br>释放一个不属于 fast bin 的 chunk，并且该 chunk 不和 top chunk 紧邻时，该 chunk 会被首先放到 unsorted bin 中。关于 top chunk 的解释，请参考下面的介绍。<br>此外，Unsorted Bin 在使用的过程中，采用的遍历顺序是 FIFO 。</p>
+<p>TOP chunk</p>
+<p>程序第一次进行 malloc 的时候，heap 会被分为两块，一块给用户，剩下的那块就是 top chunk。其实，所谓的 top chunk 就是处于当前堆的物理地址最高的 chunk。这个 chunk 不属于任何一个 bin，它的作用在于当所有的 bin 都无法满足用户请求的大小时，如果其大小不小于指定的大小，就进行分配，并将剩下的部分作为新的 top chunk。否则，就对 heap 进行扩展后再进行分配。在 main arena 中通过 sbrk 扩展 heap，而在 thread arena 中通过 mmap 分配新的 heap。</p>
+<p>需要注意的是，top chunk 的 prev_inuse 比特位始终为 1，否则其前面的 chunk 就会被合并到 top chunk 中。</p>
+<p>last remainder</p>
+<p>在用户使用 malloc 请求分配内存时，ptmalloc2 找到的 chunk 可能并不和申请的内存大小一致，这时候就将分割之后的剩余部分称之为 last remainder chunk ，unsort bin 也会存这一块。top chunk 分割剩下的部分不会作为 last remainer.</p>
+<p>arena<br>arena 数量<br>对于不同系统，arena 数量的约束如下</p>
+<p>For 32 bit systems:Number of arena = 2 * number of cores.</p>
+<p>For 64 bit systems:Number of arena = 8 * number of cores.</p>
+<p>显然，不是每一个线程都会有对应的 arena。至于为什么 64 位系统，要那么设置，我也没有想明白。此外，因为每个系统的核数是有限的，当线程数大于核数的二倍（超线程技术）时，就必然有线程处于等待状态，所以没有必要为每个线程分配一个 arena。</p>
+<p>与 thread 不同的是，main_arena 并不在申请的 heap 中，而是一个全局变量，在 libc.so 的数据段。</p>
+<p>heap_info</p>
+<p>程序刚开始执行时，每个线程是没有 heap 区域的。当其申请内存时，就需要一个结构来记录对应的信息，而 heap_info 的作用就是这个。而且当该 heap 的资源被使用完后，就必须得再次申请内存了。此外，一般申请的 heap 是不连续的，因此需要记录不同 heap 之间的链接结构。</p>
+<p>该数据结构是专门为从 Memory Mapping Segment 处申请的内存准备的，即为非主线程准备的</p>
+<p>主线程可以通过 sbrk() 函数扩展 program break location 获得（直到触及 Memory Mapping Segment），只有一个 heap，没有 heap_info 数据结构。</p>
+<p>malloc_state</p>
+<p>该结构用于管理堆，记录每个 arena 当前申请的内存的具体状态，比如说是否有空闲 chunk，有什么大小的空闲 chunk 等等。无论是 thread arena 还是 main arena，它们都只有一个 malloc state 结构。由于 thread 的 arena 可能有多个，malloc state 结构会在最新申请的 arena 中。</p>
+<p>注意，main arena 的 malloc_state 并不是 heap segment 的一部分，而是一个全局变量，存储在 libc.so 的数据段。</p>
+<h4 id="深入理解ptmalloc2"><a href="#深入理解ptmalloc2" class="headerlink" title="深入理解ptmalloc2"></a>深入理解ptmalloc2</h4><p>libc 地址</p>
+<p>P 位于双向链表头部，bk 泄漏<br>P 位于双向链表尾部，fd 泄漏</p>
+<p>双向链表只包含一个空闲 chunk 时，P 位于双向链表中，fd 和 bk 均可以泄漏</p>
+<p>泄漏堆地址，双向链表包含多个空闲 chunk</p>
+<p>P 位于双向链表头部，fd 泄漏<br>P 位于双向链表中，fd 和 bk 均可以泄漏<br>P 位于双向链表尾部，bk 泄漏</p>
+<p>smallbin双向链表插入时候<br>新(头 晚插入的)  旧(尾巴 早插入的)<br>尾部bk指向头 头fd指向尾</p>
+<p>堆初始化</p>
+<p>堆初始化是在用户第一次申请内存时执行 malloc_consolidate 再执行 malloc_init_state 实现的。这里不做过多讲解。可以参见 malloc_state 相关函数。</p>
+<h5 id="释放内存块"><a href="#释放内存块" class="headerlink" title="释放内存块"></a>释放内存块</h5><h5 id="tcache"><a href="#tcache" class="headerlink" title="tcache"></a>tcache</h5><p>tcache 是 glibc 2.26 (ubuntu 17.10) 之后引入的一种技术（see commit），目的是提升堆管理的性能。但提升性能的同时舍弃了很多安全检查，也因此有了很多新的利用方式。</p>
+<h6 id="tcache-entry"><a href="#tcache-entry" class="headerlink" title="tcache_entry"></a>tcache_entry</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct tcache_entry</span><br><span class="line">&#123;</span><br><span class="line">  struct tcache_entry *next;</span><br><span class="line">&#125; tcache_entry;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是这里的 next 指向 chunk 的 user data</p>
+<h6 id="tcache-perthread-struct"><a href="#tcache-perthread-struct" class="headerlink" title="tcache_perthread_struct"></a>tcache_perthread_struct</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">typedef struct tcache_perthread_struct</span><br><span class="line">&#123;</span><br><span class="line">  char counts[TCACHE_MAX_BINS];</span><br><span class="line">  tcache_entry *entries[TCACHE_MAX_BINS];</span><br><span class="line">&#125; tcache_perthread_struct;</span><br><span class="line"></span><br><span class="line"># define TCACHE_MAX_BINS                64</span><br><span class="line"></span><br><span class="line">static __thread tcache_perthread_struct *tcache = NULL;</span><br><span class="line">每个 thread 都会维护一个 tcache_prethread_struct，它是整个 tcache 的管理结构，一共有 TCACHE_MAX_BINS 个计数器和 TCACHE_MAX_BINS项 tcache_entry，其中</span><br><span class="line">tcache_entry 用单向链表的方式链接了相同大小的处于空闲状态（free 后）的 chunk，这一点上和 fastbin 很像。</span><br><span class="line">counts 记录了 tcache_entry 链上空闲 chunk 的数目，每条链上最多可以有 7 个 chunk。</span><br></pre></td></tr></table></figure>
+<h5 id="malloc-state"><a href="#malloc-state" class="headerlink" title="malloc_state"></a>malloc_state</h5><h6 id="malloc-consolidate"><a href="#malloc-consolidate" class="headerlink" title="malloc_consolidate"></a>malloc_consolidate</h6><p>该函数主要有两个功能</p>
+<p>若 fastbin 未初始化，即 global_max_fast 为 0，那就初始化 malloc_state。<br>如果已经初始化的话，就合并 fastbin 中的 chunk。</p>
+<h3 id="堆溢出"><a href="#堆溢出" class="headerlink" title="堆溢出"></a>堆溢出</h3><p>堆溢出是指程序向某个堆块中写入的字节数超过了堆块本身可使用的字节数（之所以是可使用而不是用户申请的字节数，是因为堆管理器会对用户所申请的字节数进行调整，这也导致可利用的字节数都不小于用户申请的字节数），因而导致了数据溢出，并覆盖到物理相邻的高地址的下一个堆块。</p>
+<p>利用策略：</p>
+<p>覆盖下一个堆块<br>prev_size，size，主要有三个比特位，以及该堆块真正的大小。<br>NON_MAIN_ARENA<br>IS_MAPPED<br>PREV_INUSE<br>the True chunk size<br>chunk content，从而改变程序固有的执行流。</p>
+<p>利用堆中的机制（如 unlink 等 ）来实现任意地址写入（ Write-Anything-Anywhere）或控制堆块中的内容等效果，从而来控制程序的执行流。</p>
+<h3 id="off-by-one"><a href="#off-by-one" class="headerlink" title="off_by_one"></a>off_by_one</h3><p>严格来说 off-by-one 漏洞是一种特殊的溢出漏洞，off-by-one 指程序向缓冲区中写入时，写入的字节数超过了这个缓冲区本身所申请的字节数并且只越界了一个字节。</p>
+<h4 id="off-by-one-利用思路"><a href="#off-by-one-利用思路" class="headerlink" title="off-by-one 利用思路"></a>off-by-one 利用思路</h4><p>溢出字节为可控制任意字节：通过修改大小造成块结构之间出现重叠，从而泄露其他块数据，或是覆盖其他块数据。也可使用 NULL 字节溢出的方法</p>
+<p>溢出字节为 NULL 字节：在 size 为 0x100 的时候，溢出 NULL 字节可以使得 prev_in_use 位被清，这样前块会被认为是 free 块。（1） 这时可以选择使用 unlink 方法（见 unlink 部分）进行处理。（2） 另外，这时 prev_size 域就会启用，就可以伪造 prev_size ，从而造成块之间发生重叠。此方法的关键在于 unlink 的时候没有检查按照 prev_size 找到的块的后一块（理论上是当前正在 unlink 的块）与当前正在 unlink 的块大小是否相等。</p>
+<h3 id="Chunk-Extend-and-Overlapping"><a href="#Chunk-Extend-and-Overlapping" class="headerlink" title="Chunk Extend and Overlapping"></a>Chunk Extend and Overlapping</h3><p>chunk extend 是堆漏洞的一种常见利用手法，通过 extend 可以实现 chunk overlapping 的效果。这种利用方法需要以下的时机和条件：</p>
+<p>程序中存在基于堆的漏洞<br>漏洞可以控制 chunk header 中的数据</p>
+<h4 id="对-inuse-的-fastbin-进行-extend"><a href="#对-inuse-的-fastbin-进行-extend" class="headerlink" title="对 inuse 的 fastbin 进行 extend"></a>对 inuse 的 fastbin 进行 extend</h4><p>更改低地址chunk的size 然后free获得包含多个chunk的块 ,申请空间  extend覆盖高地址的chunk</p>
+<h4 id="对-inuse-的-fastbin-进行-extend-1"><a href="#对-inuse-的-fastbin-进行-extend-1" class="headerlink" title="对 inuse 的 fastbin 进行 extend"></a>对 inuse 的 fastbin 进行 extend</h4><p>注意和top chunk隔开</p>
+<p>smallbin释放后会进入unsorted bin</p>
+<h4 id="对-free-的-smallbin-进行-extend"><a href="#对-free-的-smallbin-进行-extend" class="headerlink" title="对 free 的 smallbin 进行 extend"></a>对 free 的 smallbin 进行 extend</h4><p>free后修改size域 而后申请,进行覆盖</p>
+<h4 id="Chunk-Extend-Shrink可以做什么"><a href="#Chunk-Extend-Shrink可以做什么" class="headerlink" title="Chunk Extend/Shrink可以做什么"></a>Chunk Extend/Shrink可以做什么</h4><p>一般来说，这种技术并不能直接控制程序的执行流程，但是可以控制 chunk 中的内容。如果 chunk 存在字符串指针、函数指针等，就可以利用这些指针来进行信息泄漏和控制执行流程。</p>
+<p>此外通过 extend 可以实现 chunk overlapping，通过 overlapping(部分重叠) 可以控制 chunk 的 fd/bk 指针从而可以实现 fastbin attack 等利用。</p>
+<h4 id="通过-extend-后向-overlapping"><a href="#通过-extend-后向-overlapping" class="headerlink" title="通过 extend 后向 overlapping"></a>通过 extend 后向 overlapping</h4><p>更改size域先free 后malloc</p>
+<h4 id="通过-extend-前向-overlapping¶"><a href="#通过-extend-前向-overlapping¶" class="headerlink" title="通过 extend 前向 overlapping¶"></a>通过 extend 前向 overlapping¶</h4><p>前向 extend 利用了 smallbin 的 unlink 机制，通过修改 pre_size 域可以跨越多个 chunk 进行合并实现 overlapping。</p>
+<h3 id="unlink"><a href="#unlink" class="headerlink" title="unlink"></a>unlink</h3><p>在最初 unlink 实现的时候，其实是没有对 chunk 的 size 检查和双向链表检查的，即没有检查代码。<br>检查代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (__builtin_expect (FD-&gt;bk != P || BK-&gt;fd != P, 0))                      \</span><br><span class="line">  malloc_printerr (check_action, &quot;corrupted double-linked list&quot;, P, AV);  \</span><br></pre></td></tr></table></figure></p>
+<p>可以通过伪造的方法绕过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">fakeFD -&gt; bk == P &lt;=&gt; *(fakeFD + 12) == P</span><br><span class="line">fakeBK -&gt; fd == P &lt;=&gt; *(fakeBK + 8) == P</span><br><span class="line">fakeFD -&gt; bk = fakeBK &lt;=&gt; *(fakeFD + 12) = fakeBK</span><br><span class="line">fakeBK -&gt; fd = fakeFD &lt;=&gt; *(fakeBK + 8) = fakeFD</span><br><span class="line">*P = P - 8</span><br><span class="line">*P = P - 12</span><br><span class="line">``` </span><br><span class="line">即通过此方式，P 的指针指向了比自己低 12 的地址处。此方法虽然不可以实现任意地址写，但是可以修改指向 chunk 的指针，这样的修改是可以达到一定的效果的。</span><br><span class="line">#### 利用</span><br><span class="line"></span><br><span class="line">条件 </span><br><span class="line"></span><br><span class="line">UAF ，可修改 free 状态下 smallbin 或是 unsorted bin 的 fd 和 bk 指针</span><br><span class="line">已知位置存在一个指针指向可进行 UAF 的 chunk</span><br><span class="line"></span><br><span class="line">效果 </span><br><span class="line">使得已指向 UAF chunk 的指针 ptr 变为 ptr - 0x18</span><br><span class="line"></span><br><span class="line">思路</span><br><span class="line"></span><br><span class="line">设指向可 UAF chunk 的指针的地址为 ptr</span><br><span class="line"></span><br><span class="line">修改 fd 为 ptr - 0x18</span><br><span class="line">修改 bk 为 ptr - 0x10</span><br><span class="line">触发 unlink</span><br><span class="line">ptr 处的指针会变为 ptr - 0x18。</span><br><span class="line"></span><br><span class="line">### UAF</span><br><span class="line">全名use after free</span><br><span class="line">释放后没有设置位NULL</span><br><span class="line"></span><br><span class="line">### Fastbin Attack</span><br><span class="line">存在堆溢出、use-after-free 等能控制 chunk 内容的漏洞</span><br><span class="line">漏洞发生于 fastbin 类型的 chunk 中</span><br><span class="line"></span><br><span class="line">分为四类 </span><br><span class="line"></span><br><span class="line">Fastbin Double Free  </span><br><span class="line">House of Spirit  </span><br><span class="line">Alloc to Stack  </span><br><span class="line">Arbitrary Alloc</span><br><span class="line"></span><br><span class="line">其中，前两种主要漏洞侧重于利用 free 函数释放真的 chunk 或伪造的 chunk，然后再次申请 chunk 进行攻击，后两种侧重于故意修改 fd 指针，直接利用 malloc 申请指定位置 chunk 进行攻击。</span><br><span class="line"></span><br><span class="line">#### Fastbin Double Free </span><br><span class="line">Fastbin Double Free 是指 fastbin 的 chunk 可以被多次释放，因此可以在 fastbin 链表中存在多次。这样导致的后果是多次分配可以从 fastbin 链表中取出同一个堆块，相当于多个指针指向同一个堆块，结合堆块的数据内容可以实现类似于类型混淆 (type confused) 的效果。</span><br><span class="line"></span><br><span class="line">Fastbin Double Free 能够成功利用主要有两部分的原因</span><br><span class="line"></span><br><span class="line">fastbin 的堆块被释放后 next_chunk 的 pre_inuse 位不会被清空</span><br><span class="line">fastbin 在执行 free 的时候仅验证了 main_arena 直接指向的块，即链表指针头部的块。对于链表后面的块，并没有进行验证。</span><br><span class="line"></span><br><span class="line">通过 fastbin double free 我们可以使用多个指针控制同一个堆块，这可以用于篡改一些堆块中的关键数据域或者是实现类似于类型混淆的效果。 如果更进一步修改 fd 指针，则能够实现任意地址分配堆块的效果 (首先要通过验证)，这就相当于任意地址写任意值的效果。</span><br><span class="line"></span><br><span class="line">#### House Of Spirit</span><br><span class="line">House of Spirit 是 the Malloc Maleficarum 中的一种技术。</span><br><span class="line"></span><br><span class="line">该技术的核心在于在目标位置处伪造 fastbin chunk，并将其释放，从而达到分配指定地址的 chunk 的目的。</span><br><span class="line"></span><br><span class="line">要想构造 fastbin fake chunk，并且将其释放时，可以将其放入到对应的 fastbin 链表中，需要绕过一些必要的检测，即</span><br><span class="line"></span><br><span class="line">fake chunk 的 ISMMAP 位不能为 1，因为 free 时，如果是 mmap 的 chunk，会单独处理。  </span><br><span class="line">fake chunk 地址需要对齐， MALLOC_ALIGN_MASK  </span><br><span class="line">fake chunk 的 size 大小需要满足对应的 fastbin 的需求，同时也得对齐。  </span><br><span class="line">fake chunk 的 next chunk 的大小不能小于 2 * SIZE_SZ，同时也不能大于av-&gt;system_mem 。  </span><br><span class="line">fake chunk 对应的 fastbin 链表头部不能是该 fake chunk，即不能构成 double free 的情况。  </span><br><span class="line"></span><br><span class="line">##### 小总结</span><br><span class="line">可以看出，想要使用该技术分配 chunk 到指定地址，其实并不需要修改指定地址的任何内容，关键是要能够修改指定地址的前后的内容使其可以绕过对应的检测。</span><br><span class="line"></span><br><span class="line">#### Alloc to Stack</span><br><span class="line"></span><br><span class="line">该技术的核心点在于劫持 fastbin 链表中 chunk 的 fd 指针，把 fd 指针指向我们想要分配的栈上，从而实现控制栈中的一些关键数据，比如返回地址等。</span><br><span class="line"></span><br><span class="line">#### Arbitrary Alloc</span><br><span class="line">Arbitrary Alloc 其实与 Alloc to stack 是完全相同的，唯一的区别是分配的目标不再是栈中。 事实上只要满足目标地址存在合法的 size 域（这个 size 域是构造的，还是自然存在的都无妨），我们可以把 chunk 分配到任意的可写内存中，比如 bss、heap、data、stack 等等。</span><br><span class="line"></span><br><span class="line">### Unsorted Bin Attack</span><br><span class="line"></span><br><span class="line">Unsorted Bin Attack，顾名思义，该攻击与 Glibc 堆管理中的的 Unsorted Bin 的机制紧密相关。</span><br><span class="line"></span><br><span class="line">Unsorted Bin Attack 被利用的前提是控制 Unsorted Bin Chunk 的 bk 指针。</span><br><span class="line"></span><br><span class="line">Unsorted Bin Attack 可以达到的效果是实现修改任意地址值为一个较大的数值。</span><br></pre></td></tr></table></figure></p>
+<p>bck p前一个chunk<br>p要取出的chunk<br>unsorted_chunks(av);指向尾部chunk的指针</p>
+<p>victim = unsorted_chunks(av)-&gt;bk=p<br>bck = victim-&gt;bk=p-&gt;bk = target addr-16<br>unsorted_chunks(av)-&gt;bk = bck=target addr-16<br>bck-&gt;fd = *(target addr -16+16) = unsorted_chunks(av);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Large Bin Attack</span><br><span class="line">Large Bin Attack 可以用来修改任意地址的值。例如用来修改 global_max_fast 进而做下一步的 fast bin attack。</span><br><span class="line"></span><br><span class="line">#### 利用方法</span><br><span class="line">修改large bin的 size使得以下判断不满足条件</span><br></pre></td></tr></table></figure></p>
+<p>if ((unsigned long) size == (unsigned long) chunksize_nomask (fwd))</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">之后修改large bin的 bk bk_nextsize的值为想要修改的地址</span><br><span class="line">从unsortbin申请一个大于 large bin的空间触发插入</span><br></pre></td></tr></table></figure>
+<pre><code>          else
+          {
+              victim-&gt;fd_nextsize = fwd;
+              victim-&gt;bk_nextsize = fwd-&gt;bk_nextsize;
+              fwd-&gt;bk_nextsize = victim;
+              victim-&gt;bk_nextsize-&gt;fd_nextsize = victim;
+          }
+          bck = fwd-&gt;bk;
+
+[...]
+
+mark_bin (av, victim_index);
+victim-&gt;bk = bck;
+victim-&gt;fd = fwd;
+fwd-&gt;bk = victim;
+bck-&gt;fd = victim;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">会把目的地址写入为unsortbin 将要插入的bin的地址</span><br><span class="line"></span><br><span class="line">### Tcache Attack</span><br><span class="line"></span><br><span class="line">#### PWN Tcache</span><br><span class="line">##### tcache poisoning</span><br><span class="line"></span><br><span class="line">free 在tcache范围内的内存更改它的next(fd)位置,然后申请对应大小的内存</span><br><span class="line"></span><br><span class="line">##### tcache dup</span><br><span class="line">可以多次free 产生多个指针指向一个 地址</span><br><span class="line"></span><br><span class="line">##### tcache perthread corruption</span><br><span class="line">我们已经知道 tcache_perthread_struct 是整个 tcache 的管理结构，如果能控制这个结构体，那么无论我们 malloc 的 size 是多少，地址都是可控的。</span><br><span class="line"></span><br><span class="line">因为 tcache_prethread_struct 也在堆上，因此这种方法一般只需要 partial overwrite 就可以达到目的。</span><br><span class="line"></span><br><span class="line">##### tcache house of spirit</span><br><span class="line">在栈里伪造内堆块 然后free再申请即可获得指向栈空间的内存块</span><br><span class="line"></span><br><span class="line">##### smallbin unlink</span><br><span class="line">在 smallbin 中包含有空闲块的时候，会同时将同大小的其他空闲块，放入 tcache 中，此时也会出现解链操作，但相比于 unlink 宏，缺少了链完整性校验。因此，原本 unlink 操作在该条件下也可以使用。</span><br><span class="line"></span><br><span class="line">需要先把tcache填满才行</span><br><span class="line">#### Tcache Check</span><br><span class="line"></span><br><span class="line">在最新的 libc 的 commit 中更新了 Tcache 的 double free 的 check：</span><br><span class="line"></span><br><span class="line">### House Of Einherjar</span><br><span class="line">house of einherjar 是一种堆利用技术，由 Hiroki Matsukuma 提出。该堆利用技术可以强制使得 malloc 返回一个几乎任意地址的 chunk 。其主要在于滥用 free 中的后向合并操作（合并低地址的 chunk），从而使得尽可能避免碎片化。</span><br><span class="line"></span><br><span class="line">#### 原理</span><br><span class="line"></span><br><span class="line">两个物理相邻的 chunk 会共享 prev_size字段，尤其是当低地址的 chunk 处于使用状态时，高地址的 chunk 的该字段便可以被低地址的 chunk 使用。因此，我们有希望可以通过写低地址 chunk 覆盖高地址 chunk 的 prev_size 字段。</span><br><span class="line"></span><br><span class="line">一个 chunk PREV_INUSE 位标记了其物理相邻的低地址 chunk 的使用状态，而且该位是和 prev_size 物理相邻的。</span><br><span class="line">后向合并时，新的 chunk 的位置取决于 chunk_at_offset(p, -((long) prevsize)) 。</span><br><span class="line"></span><br><span class="line">那么如果我们可以同时控制一个 chunk prev_size 与 PREV_INUSE 字段，那么我们就可以将新的 chunk 指向几乎任何位置。</span><br><span class="line"></span><br><span class="line">#### 总结</span><br><span class="line">这里我们总结下这个利用技术需要注意的地方</span><br><span class="line"></span><br><span class="line">需要有溢出漏洞可以写物理相邻的高地址的 prev_size 与 PREV_INUSE 部分。  </span><br><span class="line">我们需要计算目的 chunk 与 p1 地址之间的差，所以需要泄漏地址。</span><br><span class="line">我们需要在目的 chunk 附近构造相应的 fake chunk，从而绕过 unlink 的检测。  </span><br><span class="line">其实，该技术与 chunk extend/shrink 技术比较类似。 </span><br><span class="line"></span><br><span class="line">### House Of Force</span><br><span class="line">House Of Force 是一种堆利用方法，但是并不是说 House Of Force 必须得基于堆漏洞来进行利用。如果一个堆 (heap based) 漏洞想要通过 House Of Force 方法进行利用，需要以下条件：</span><br><span class="line"></span><br><span class="line">能够以溢出等方式控制到 top chunk 的 size 域</span><br><span class="line">能够自由地控制堆分配尺寸的大小</span><br><span class="line"></span><br><span class="line">地址计算:aim_addr-top_chunk地址-size_sz</span><br><span class="line"></span><br><span class="line">### House of Lore</span><br></pre></td></tr></table></figure>
+<pre><code>// 获取 small bin 中倒数第二个 chunk 。
+bck = victim-&gt;bk;
+// 检查 bck-&gt;fd 是不是 victim，防止伪造
+if (__glibc_unlikely(bck-&gt;fd != victim)) {
+    errstr = &quot;malloc(): smallbin double linked list corrupted&quot;;
+    goto errout;
+}
+// 设置 victim 对应的 inuse 位
+set_inuse_bit_at_offset(victim, nb);
+// 修改 small bin 链表，将 small bin 的最后一个 chunk 取出来
+bin-&gt;bk = bck;
+bck-&gt;fd = bin;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">申请smallbin最后一个的堆块(链表fd指向的终结 victim)</span><br><span class="line">修改最后一个堆块bk 为想申请到的chunk 只需要过检查</span><br><span class="line">使得申请的块fd位置的值指向最后一个堆块(victim)</span><br><span class="line">可以把伪造的chunk插入smallbin 再次申请即可得到对应chunk</span><br><span class="line">### House of Orange</span><br><span class="line">House of Orange 的利用比较特殊，首先需要目标漏洞是堆上的漏洞但是特殊之处在于题目中不存在 free 函数或其他释放堆块的函数。我们知道一般想要利用堆漏洞，需要对堆块进行 malloc 和 free 操作，但是在 House of Orange 利用中无法使用 free 函数，因此 House of Orange 核心就是通过漏洞利用获得 free 的效果。</span><br><span class="line"></span><br><span class="line">如我们前面所述，House of Orange 的核心在于在没有 free 函数的情况下得到一个释放的堆块 (unsorted bin)。 这种操作的原理简单来说是当前堆的 top chunk 尺寸不足以满足申请分配的大小的时候，原来的 top chunk 会被释放并被置入 unsorted bin 中，通过这一点可以在没有 free 函数情况下获取到 unsorted bins。</span><br><span class="line"></span><br><span class="line">我们总结一下伪造的 top chunk size 的要求  </span><br><span class="line">1.伪造的 size 必须要对齐到内存页  </span><br><span class="line">2.size 要大于 MINSIZE(0x10)  </span><br><span class="line">3.size 要小于之后申请的 chunk size + MINSIZE(0x10)  </span><br><span class="line">4.size 的 prev inuse 位必须为 1</span><br><span class="line">之后原有的 top chunk 就会执行_int_free从而顺利进入 unsorted bin 中 </span><br><span class="line"></span><br><span class="line">伪造top chunk的头的时候需要注意内存页对齐(0x1000)  </span><br><span class="line">申请一个大空间就会把原top chunk 送入unsortbin里</span><br><span class="line"></span><br><span class="line">其实 house of orange 的要点正在于此，之后的利用涉及到_IO_FILE </span><br><span class="line">### House of Rabbit</span><br><span class="line"></span><br><span class="line">House of rabbit 是一种伪造堆块的技术</span><br><span class="line">我们知道，fastbin 中会把相同的 size 的被释放的堆块用一个单向链表管理，分配的时候会检查 size 是否合理，如果不合理程序就会异常退出。而 house of rabbit 就利用了在 malloc consolidate 的时候 fastbin 中的堆块进行合并时 size 没有进行检查从而伪造一个假的堆块，为进一步的利用做准备。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">原理很简单，就是通过修改 fastbin chunk 的 size 直接构造 overlap chunk，或者修改 fd，让它指向一个 fake chunk，触发 malloc consolidate 之后让这个 fake chunk 成为一个合法的 chunk。</span><br><span class="line"></span><br><span class="line">### House of Roman</span><br><span class="line">House of Roman 这个技巧说简单点其实就是 fastbin attack 和 Unsortbin attack 结合的一个小 trick。</span><br><span class="line"></span><br><span class="line">总体流程如下  </span><br><span class="line">https://ctf-wiki.github.io/ctf-wiki/pwn/linux/glibc-heap/house_of_roman/</span><br><span class="line"></span><br><span class="line">将 FD 指向 malloc_hook  </span><br><span class="line">修正 0x71 的 Freelist  </span><br><span class="line">往 malloc_hook 写入 one gadget  </span><br><span class="line"></span><br><span class="line">## IO_FILE 利用</span><br><span class="line"></span><br><span class="line">### FILE文件结构</span><br><span class="line">FILE 在 Linux 系统的标准 IO 库中是用于描述文件的结构，称为文件流。 FILE 结构在程序执行 fopen 等函数时会进行创建，并分配在堆中。我们常定义一个指向 FILE 结构的指针来接收这个返回值。</span><br><span class="line"></span><br><span class="line">FILE 结构定义在 libio.h 中</span><br><span class="line"></span><br><span class="line">进程中的 FILE 结构会通过_chain 域彼此连接形成一个链表，链表头部用全局变量_IO_list_all 表示，通过这个值我们可以遍历所有的 FILE 结构。</span><br><span class="line"></span><br><span class="line">在标准 I/O 库中，每个程序启动时有三个文件流是自动打开的：stdin、stdout、stderr。因此在初始状态下，_IO_list_all 指向了一个有这些文件流构成的链表，但是需要注意的是这三个文件流位于 libc.so 的数据段。而我们使用 fopen 创建的文件流是分配在堆内存上的。</span><br><span class="line"></span><br><span class="line">但是事实上_IO_FILE 结构外包裹着另一种结构_IO_FILE_plus，其中包含了一个重要的指针 vtable 指向了一系列函数指针。</span><br></pre></td></tr></table></figure>
+<p>struct _IO_FILE_plus<br>{<br>    _IO_FILE    file;<br>    IO_jump_t   *vtable;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### fread</span><br><span class="line">fread 的代码位于 / libio/iofread.c 中，函数名为_IO_fread，但真正的功能实现在子函数_IO_sgetn 中。</span><br><span class="line"></span><br><span class="line">在_IO_sgetn 函数中会调用_IO_XSGETN，而_IO_XSGETN 是_IO_FILE_plus.vtable 中的函数指针，在调用这个函数时会首先取出 vtable 中的指针然后再进行调用。</span><br><span class="line"></span><br><span class="line">### fwrite</span><br><span class="line">fwrite 的代码位于 / libio/iofwrite.c 中，函数名为_IO_fwrite。 在_IO_fwrite 中主要是调用_IO_XSPUTN 来实现写入的功能。</span><br><span class="line"></span><br><span class="line">根据前面对_IO_FILE_plus 的介绍，可知_IO_XSPUTN 位于_IO_FILE_plus 的 vtable 中，调用这个函数需要首先取出 vtable 中的指针，再跳过去进行调用。</span><br><span class="line">### fopen</span><br><span class="line">首先在 fopen 对应的函数__fopen_internal 内部会调用 malloc 函数，分配 FILE 结构的空间。因此我们可以获知 FILE 结构是存储在堆上的  </span><br><span class="line">之后会为创建的 FILE 初始化 vtable，并调用_IO_file_init 进一步初始化操作  </span><br><span class="line">在_IO_file_init 函数的初始化操作中，会调用_IO_link_in 把新分配的 FILE 链入_IO_list_all 为起始的 FILE 链表中  </span><br><span class="line"></span><br><span class="line">### fclose</span><br><span class="line">功能：关闭一个文件流，使用 fclose 就可以把缓冲区内最后剩余的数据输出到磁盘文件中，并释放文件指针和有关的缓冲区  </span><br><span class="line">fclose 首先会调用_IO_unlink_it 将指定的 FILE 从_chain 链表中脱链  </span><br><span class="line">之后会调用_IO_file_close_it 函数，_IO_file_close_it 会调用系统接口 close 关闭文件  </span><br><span class="line">最后调用 vtable 中的_IO_FINISH，其对应的是_IO_file_finish 函数，其中会调用 free 函数释放之前分配的 FILE 结构</span><br><span class="line"></span><br><span class="line">### printf/puts</span><br><span class="line">printf 和 puts 是常用的输出函数，在 printf 的参数是以&apos;\n&apos;结束的纯字符串时，printf 会被优化为 puts 函数并去除换行符。</span><br><span class="line"></span><br><span class="line">puts 在源码中实现的函数是_IO_puts，这个函数的操作与 fwrite 的流程大致相同，函数内部同样会调用 vtable 中的_IO_sputn，结果会执行_IO_new_file_xsputn，最后会调用到系统接口 write 函数。</span><br><span class="line"></span><br><span class="line">printf 的调用栈回溯如下，同样是通过_IO_file_xsputn 实现</span><br><span class="line"></span><br><span class="line">### 伪造 vtable 劫持程序流程</span><br><span class="line">vtable 劫持分为两种，一种是直接改写 vtable 中的函数指针，通过任意地址写就可以实现。另一种是覆盖 vtable 的指针指向我们控制的内存，然后在其中布置函数指针。</span><br><span class="line"></span><br><span class="line">根据 vtable 在_IO_FILE_plus 的偏移得到 vtable 的地址，在 64 位系统下偏移是 0xd8。之后需要搞清楚欲劫持的 IO 函数会调用 vtable 中的哪个函数。关于 IO 函数调用 vtable 的情况已经在 FILE 结构介绍一节给出了，知道了 printf 会调用 vtable 中的 xsputn，并且 xsputn 的是 vtable 中第八项之后就可以写入这个指针进行劫持。</span><br><span class="line"></span><br><span class="line">并且在 xsputn 等 vtable 函数进行调用时，传入的第一个参数其实是对应的_IO_FILE_plus 地址。比如这例子调用 printf，传递给 vtable 的第一个参数就是_IO_2_1_stdout_的地址。</span><br><span class="line"></span><br><span class="line">如果程序中不存在 fopen 等函数创建的_IO_FILE 时，也可以选择 stdin\stdout\stderr 等位于 libc.so 中的_IO_FILE，这些流在 printf\scanf 等函数中就会被使用到。在 libc2.23 之前，这些 vtable 是可以写入并且不存在其他检测的。</span><br><span class="line">### FSOP</span><br><span class="line">FSOP 的核心思想就是劫持_IO_list_all 的值来伪造链表和其中的_IO_FILE 项，但是单纯的伪造只是构造了数据还需要某种方法进行触发。FSOP 选择的触发方法是调用_IO_flush_all_lockp，这个函数会刷新_IO_list_all 链表中所有项的文件流，相当于对每个 FILE 调用 fflush，也对应着会调用_IO_FILE_plus.vtable 中的_IO_overflow。</span><br><span class="line">### glibc 2.24 下 IO_FILE 的利用</span><br><span class="line">https://ctf-wiki.github.io/ctf-wiki/pwn/linux/io_file/exploit-in-libc2.24/</span><br><span class="line"></span><br><span class="line">## 整数溢出</span><br><span class="line"></span><br><span class="line">### 上界溢出</span><br><span class="line">上界溢出有两种情况，一种是 0x7fff + 1， 另一种是 0xffff + 1。</span><br><span class="line"></span><br><span class="line">所以 add 0x7fff, 1 == 0x8000，这种上界溢出对无符号整型就没有影响，但是在有符号短整型中，0x7fff 表示的是 32767，但是 0x8000 表示的是 -32768，用数学表达式来表示就是在有符号短整型中 32767+1 == -32768。</span><br><span class="line"></span><br><span class="line">第二种情况是 add 0xffff, 1，这种情况需要考虑的是第一个操作数。</span><br><span class="line"></span><br><span class="line">### 下界溢出</span><br><span class="line">下届溢出的道理和上界溢出一样，在汇编代码中，只是把 add 替换成了 sub。</span><br><span class="line"></span><br><span class="line">一样也是有两种情况：</span><br><span class="line"></span><br><span class="line">第一种是 sub 0x0000, 1 == 0xffff，对于有符号来说 0 - 1 == -1 没问题，但是对于无符号来说就成了 0 - 1 == 65535。</span><br><span class="line"></span><br><span class="line">第二种是 sub 0x8000, 1 == 0x7fff，对于无符号来说是 32768 - 1 == 32767 是正确的，但是对于有符号来说就变成了 -32768 - 1 = 32767。</span><br><span class="line"></span><br><span class="line">### 例子</span><br><span class="line">#### 未限制范围 </span><br><span class="line">-1转换成无符号的变量</span><br><span class="line">#### 错误的类型转换 </span><br><span class="line">范围大的变量赋值给范围小的变量</span><br><span class="line">损失一部分的值</span><br><span class="line"></span><br><span class="line">只做了单边限制</span><br><span class="line"></span><br><span class="line">这种情况只针对有符号类型</span><br></pre></td></tr></table></figure></p>
+<p>$ cat test3.c<br>int main(void)<br>{<br>    int len, l;<br>    char buf[11];</p>
+<pre><code>scanf(&quot;%d&quot;, &amp;len);
+if (len &lt; 10) {
+    l = read(0, buf, len);
+    *(buf+l) = 0;
+    puts(buf);
+} else
+    printf(&quot;Please len &lt; 10&quot;);        
+</code></pre><p>}<br>$ gcc test3.c<br>$ ./a.out<br>-1<br>aaaaaaaaaaaa<br>aaaaaaaaaaaa<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 条件竞争</span><br><span class="line"></span><br><span class="line">条件竞争是指一个系统的运行结果依赖于不受控制的事件的先后顺序。当这些不受控制的事件并没有按照开发者想要的方式运行时，就可能会出现 bug。这个术语最初来自于两个电信号互相竞争来影响输出结果。</span><br><span class="line"></span><br><span class="line">## kernel</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 工具</span><br><span class="line">## 寻找gadget</span><br><span class="line">### ROPgadget</span><br></pre></td></tr></table></figure></p>
+<p>ROPgadget –binary rop  –only ‘pop|ret’ | grep ‘eax’<br><code>`</code></p>
+<h2 id="获取libc版本函数偏移"><a href="#获取libc版本函数偏移" class="headerlink" title="获取libc版本函数偏移"></a>获取libc版本函数偏移</h2><p><a href="https://github.com/niklasb/libc-database" target="_blank" rel="noopener">https://github.com/niklasb/libc-database</a></p>
+<h2 id="格式化字符串检测"><a href="#格式化字符串检测" class="headerlink" title="格式化字符串检测"></a>格式化字符串检测</h2><p>LAZYIDA <a href="https://github.com/L4ys/LazyIDA" target="_blank" rel="noopener">https://github.com/L4ys/LazyIDA</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/05/30/pwn小记/">pwn小记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 天河 的个人博客">天河</a></p>
+        <p><span>发布时间:</span>2019年05月30日 - 22时24分</p>
+        <p><span>最后更新:</span>2019年06月07日 - 11时19分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/30/pwn小记/" title="pwn小记">http://yoursite.com/2019/05/30/pwn小记/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/30/pwn小记/　　作者: 天河" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#防护技术"><span class="toc-number">1.</span> <span class="toc-text">防护技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#canary"><span class="toc-number">1.1.</span> <span class="toc-text">canary</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">1.1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用"><span class="toc-number">1.1.2.</span> <span class="toc-text">利用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NX"><span class="toc-number">1.2.</span> <span class="toc-text">NX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RELRO"><span class="toc-number">1.3.</span> <span class="toc-text">RELRO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PIE"><span class="toc-number">1.4.</span> <span class="toc-text">PIE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GCC编译"><span class="toc-number">1.4.1.</span> <span class="toc-text">GCC编译</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内核防护技术"><span class="toc-number">1.5.</span> <span class="toc-text">内核防护技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KPTI"><span class="toc-number">1.5.1.</span> <span class="toc-text">KPTI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KASLR"><span class="toc-number">1.5.2.</span> <span class="toc-text">KASLR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMAP-SMEP"><span class="toc-number">1.5.3.</span> <span class="toc-text">SMAP/SMEP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stack-Protector"><span class="toc-number">1.5.4.</span> <span class="toc-text">Stack Protector</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#攻击技术"><span class="toc-number">2.</span> <span class="toc-text">攻击技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈迁移"><span class="toc-number">2.1.</span> <span class="toc-text">栈迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈溢出"><span class="toc-number">2.2.</span> <span class="toc-text">栈溢出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#栈结构"><span class="toc-number">2.2.1.</span> <span class="toc-text">栈结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">利用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ROP"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">ROP</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ret2text"><span class="toc-number">2.2.3.1.1.</span> <span class="toc-text">ret2text</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ret2shellcode"><span class="toc-number">2.2.3.1.2.</span> <span class="toc-text">ret2shellcode</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ret2syscall"><span class="toc-number">2.2.3.1.3.</span> <span class="toc-text">ret2syscall</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ret2libc"><span class="toc-number">2.2.3.1.4.</span> <span class="toc-text">ret2libc</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ret2csu"><span class="toc-number">2.2.3.1.5.</span> <span class="toc-text">ret2csu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ret2reg"><span class="toc-number">2.2.3.1.6.</span> <span class="toc-text">ret2reg</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BROP"><span class="toc-number">2.2.3.1.7.</span> <span class="toc-text">BROP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ret2-dl-runtime-resolve"><span class="toc-number">2.2.3.1.8.</span> <span class="toc-text">ret2_dl_runtime_resolve</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#利用-2"><span class="toc-number">2.2.3.1.8.1.</span> <span class="toc-text">利用</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SROP-（Sigreturn-Oriented-Programming"><span class="toc-number">2.2.3.1.9.</span> <span class="toc-text">SROP （Sigreturn Oriented Programming)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ret2VDSO"><span class="toc-number">2.2.3.1.10.</span> <span class="toc-text">ret2VDSO</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#COP"><span class="toc-number">2.2.3.1.11.</span> <span class="toc-text">COP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JOP"><span class="toc-number">2.2.3.1.12.</span> <span class="toc-text">JOP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#stack-pivoting¶"><span class="toc-number">2.2.3.1.13.</span> <span class="toc-text">stack pivoting¶</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#转移堆"><span class="toc-number">2.2.3.1.14.</span> <span class="toc-text">转移堆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#partial-overwrite"><span class="toc-number">2.2.3.1.15.</span> <span class="toc-text">partial overwrite</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#frame-faking"><span class="toc-number">2.2.3.1.16.</span> <span class="toc-text">frame faking</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Stack-smash"><span class="toc-number">2.2.3.1.17.</span> <span class="toc-text">Stack smash</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#格式化字符串漏洞"><span class="toc-number">2.3.</span> <span class="toc-text">格式化字符串漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#利用-3"><span class="toc-number">2.3.1.</span> <span class="toc-text">利用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#程序崩溃"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">程序崩溃</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#泄露内存"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">泄露内存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆利用"><span class="toc-number">2.4.</span> <span class="toc-text">堆利用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#堆实现原理"><span class="toc-number">2.4.1.</span> <span class="toc-text">堆实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关数据结构"><span class="toc-number">2.4.2.</span> <span class="toc-text">相关数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#malloc-chunk"><span class="toc-number">2.4.2.1.</span> <span class="toc-text">malloc_chunk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#深入理解ptmalloc2"><span class="toc-number">2.4.2.2.</span> <span class="toc-text">深入理解ptmalloc2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#释放内存块"><span class="toc-number">2.4.2.2.1.</span> <span class="toc-text">释放内存块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tcache"><span class="toc-number">2.4.2.2.2.</span> <span class="toc-text">tcache</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#tcache-entry"><span class="toc-number">2.4.2.2.2.1.</span> <span class="toc-text">tcache_entry</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#tcache-perthread-struct"><span class="toc-number">2.4.2.2.2.2.</span> <span class="toc-text">tcache_perthread_struct</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#malloc-state"><span class="toc-number">2.4.2.2.3.</span> <span class="toc-text">malloc_state</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#malloc-consolidate"><span class="toc-number">2.4.2.2.3.1.</span> <span class="toc-text">malloc_consolidate</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆溢出"><span class="toc-number">2.4.3.</span> <span class="toc-text">堆溢出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#off-by-one"><span class="toc-number">2.4.4.</span> <span class="toc-text">off_by_one</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#off-by-one-利用思路"><span class="toc-number">2.4.4.1.</span> <span class="toc-text">off-by-one 利用思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chunk-Extend-and-Overlapping"><span class="toc-number">2.4.5.</span> <span class="toc-text">Chunk Extend and Overlapping</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对-inuse-的-fastbin-进行-extend"><span class="toc-number">2.4.5.1.</span> <span class="toc-text">对 inuse 的 fastbin 进行 extend</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对-inuse-的-fastbin-进行-extend-1"><span class="toc-number">2.4.5.2.</span> <span class="toc-text">对 inuse 的 fastbin 进行 extend</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对-free-的-smallbin-进行-extend"><span class="toc-number">2.4.5.3.</span> <span class="toc-text">对 free 的 smallbin 进行 extend</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Chunk-Extend-Shrink可以做什么"><span class="toc-number">2.4.5.4.</span> <span class="toc-text">Chunk Extend/Shrink可以做什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过-extend-后向-overlapping"><span class="toc-number">2.4.5.5.</span> <span class="toc-text">通过 extend 后向 overlapping</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过-extend-前向-overlapping¶"><span class="toc-number">2.4.5.6.</span> <span class="toc-text">通过 extend 前向 overlapping¶</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unlink"><span class="toc-number">2.4.6.</span> <span class="toc-text">unlink</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取libc版本函数偏移"><span class="toc-number">2.5.</span> <span class="toc-text">获取libc版本函数偏移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#格式化字符串检测"><span class="toc-number">2.6.</span> <span class="toc-text">格式化字符串检测</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'tianheshuangxue',
+      repo: 'tianheshuangxue.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/pwn小记/">pwn小记</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 天河
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 13;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
