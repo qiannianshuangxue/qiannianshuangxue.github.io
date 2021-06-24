@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js学习 | 天河的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="开发">
+<meta name="keywords" content="开发,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js学习">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/js学习/index.html">
+<meta property="og:site_name" content="天河的随笔">
+<meta property="og:description" content="开发">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2020-07-30T08:30:11.591Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js学习">
+<meta name="twitter:description" content="开发">
+  
+    <link rel="alternative" href="/atom.xml" title="天河的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">天河</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">猫会有的,妹子也会有的</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="/ tianhe@chamd5.org" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiannianshuangxue" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Crypto/" style="font-size: 10px;">Crypto</a> <a href="/tags/IDA/" style="font-size: 10px;">IDA</a> <a href="/tags/MISC/" style="font-size: 10px;">MISC</a> <a href="/tags/RE/" style="font-size: 16px;">RE</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/alf-fuzz/" style="font-size: 10px;">alf-fuzz</a> <a href="/tags/android/" style="font-size: 18px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/avd/" style="font-size: 10px;">avd</a> <a href="/tags/awd/" style="font-size: 10px;">awd</a> <a href="/tags/bin/" style="font-size: 10px;">bin</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/fuzz/" style="font-size: 12px;">fuzz</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/libfuzzer/" style="font-size: 10px;">libfuzzer</a> <a href="/tags/math/" style="font-size: 10px;">math</a> <a href="/tags/patcherex/" style="font-size: 10px;">patcherex</a> <a href="/tags/plug/" style="font-size: 10px;">plug</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tool/" style="font-size: 20px;">tool</a> <a href="/tags/vmware/" style="font-size: 10px;">vmware</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/区块链/" style="font-size: 10px;">区块链</a> <a href="/tags/取证/" style="font-size: 12px;">取证</a> <a href="/tags/可视化/" style="font-size: 10px;">可视化</a> <a href="/tags/开发/" style="font-size: 14px;">开发</a> <a href="/tags/微信小程序/" style="font-size: 10px;">微信小程序</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/音乐/" style="font-size: 10px;">音乐</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://pcat.cnblogs.com/">pact</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我因世界而改变,世界也因我而改变。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">天河</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">天河</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">猫会有的,妹子也会有的</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="/ tianhe@chamd5.org" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiannianshuangxue" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-js学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/30/js学习/" class="article-date">
+      <time datetime="2019-05-30T14:24:21.000Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发/">开发</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <a id="more"></a>
+<h2 id="代码例子"><a href="#代码例子" class="headerlink" title="代码例子"></a>代码例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type=&quot;button&quot;</span><br><span class="line">onclick=&quot;document.getElementById(&apos;demo&apos;).innerHTML = Date()&quot;&gt;</span><br><span class="line">点击这里来显示日期和时间</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">用于把id为demo的位置写入Date</span><br></pre></td></tr></table></figure>
+<p>改变标签的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;document.getElementById(&apos;myImage&apos;).src=&apos;/i/eg_bulbon.gif&apos;&quot;&gt;开灯&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;img id=&quot;myImage&quot; border=&quot;0&quot; src=&quot;/i/eg_bulboff.gif&quot; style=&quot;text-align:center;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;button onclick=&quot;document.getElementById(&apos;myImage&apos;).src=&apos;/i/eg_bulboff.gif&apos;&quot;&gt;关灯&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
+<p>改变元素的样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=&quot;demo&quot;&gt;JavaScript 能够改变 HTML 元素的样式。&lt;/p&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; onclick=&quot;document.getElementById(&apos;demo&apos;).style.fontSize=&apos;35px&apos;&quot;&gt;</span><br><span class="line">点击我！</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
+<p>隐藏或者显示HTML元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h2&gt;JavaScript 能够做什么&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;JavaScript 能够显示隐藏的 HTML 元素。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;p id=&quot;demo&quot; style=&quot;display:none&quot;&gt;Hello JavaScript!&lt;/p&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; onclick=&quot;document.getElementById(&apos;demo&apos;).style.display=&apos;none&apos;&quot;&gt;</span><br><span class="line">点击我1！</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;button type=&quot;button&quot; onclick=&quot;document.getElementById(&apos;demo&apos;).style.display=&apos;block&apos;&quot;&gt;</span><br><span class="line">点击我2！</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h3><p>在html中使用需要加标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">document.getElementById(&quot;demo&quot;).innerHTML = &quot;我的第一段 JavaScript&quot;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>旧的 JavaScript 例子也许会使用 type 属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="外部引用"><a href="#外部引用" class="headerlink" title="外部引用"></a>外部引用</h3><p>使用外部脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;myScript.js&quot;&gt;&lt;/script&gt;当前页面相同文件夹的脚本</span><br><span class="line">&lt;script src=&quot;/js/myScript1.js&quot;&gt;&lt;/script&gt; 网站文件夹中的脚本</span><br><span class="line">&lt;script src=&quot;https://www.w3school.com.cn/js/myScript1.js&quot;&gt;&lt;/script&gt; 外部链接的脚本</span><br></pre></td></tr></table></figure></p>
+<h3 id="输出信息"><a href="#输出信息" class="headerlink" title="输出信息"></a>输出信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用 window.alert() 写入警告框</span><br><span class="line">使用 document.write() 写入 HTML 输出  </span><br><span class="line">注意：在 HTML 文档完全加载后使用 document.write() 将删除所有已有的 HTML ：</span><br><span class="line">使用 innerHTML 写入 HTML 元素</span><br><span class="line">使用 console.log() 写入浏览器控制台</span><br></pre></td></tr></table></figure>
+<h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function myFunction() &#123;</span><br><span class="line">        document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello Kitty.&quot;;</span><br><span class="line">    document.getElementById(&quot;myDIV&quot;).innerHTML = &quot;How are you?&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编写注意"><a href="#编写注意" class="headerlink" title="编写注意"></a>编写注意</h3><p>使用需要分号；来结尾，js代码对缩进什么的近乎无要求</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>使用var 声明变量<br>使用// /<em> </em>/ 注释<br>在重复声明的时候不会丢失原来的值<br>var x = “8” + 3 + 5; 在运算会得到”835“<br>var x = 3 + 5 + “8”; 在运算后会得到“88”<br>字符串和数字的相加<br>相加两个数字，将返回和，但对一个数字和一个字符串相加将返回一个字符串：</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>标识符需要首字符必须是字母、下划线（-）或美元符号（$）。<br>并且标识符对大小写敏感</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>+    加法<br>-    减法<br>*    乘法<br>/    除法<br>%    系数<br>++    递加<br>–    递减<br>和C使用的运算符大体相同<br>=== 等值类型<br>!==不等值或不等型<br>typeof    返回变量的类型。<br>instanceof    返回 true，如果对象是对象类型的实例。<br>in    对象中的属性    例如”PI” in Math</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>字符串值，数值，布尔值，数组，对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var length = 7;                             // 数字</span><br><span class="line">var lastName = &quot;Gates&quot;;                      // 字符串</span><br><span class="line">var cars = [&quot;Porsche&quot;, &quot;Volvo&quot;, &quot;BMW&quot;];         // 数组</span><br><span class="line">var x = &#123;firstName:&quot;Bill&quot;, lastName:&quot;Gates&quot;&#125;;    // 对象</span><br></pre></td></tr></table></figure></p>
+<p>JavaScript 拥有动态类型。这意味着相同变量可用作不同类型：<br>可以使用undefined 进行清空例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var var_a</span><br><span class="line">var_a = undefined;</span><br></pre></td></tr></table></figure></p>
+<p>Undefined 与 Null 的区别:Undefined 与 null 的值相等，但类型不相等：</p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>内建属性 length 可返回字符串的长度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var txt = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;</span><br><span class="line">var sln = txt.length;</span><br></pre></td></tr></table></figure></p>
+<p>特殊字符需要加转义字符 \<br>\b    退格键<br>\f    换页<br>\n    新行<br>\r    回车<br>\t    水平制表符<br>\v    垂直制表符</p>
+<p>字符串过长时可以使用反斜杠换行 \<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello \</span><br><span class="line">Kitty!&quot;;</span><br></pre></td></tr></table></figure></p>
+<h5 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h5><p>indexOf()方法返回字符串中指定文本首次出现的索引（位置）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;The full name of China is the People&apos;s Republic of China.&quot;;</span><br><span class="line">var pos = str.indexOf(&quot;China&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>lastIndexOf() 方法返回指定文本在字符串中最后一次出现的索引：<br>上述两种方法均未找到 返回-1<br>两种方法都接受作为检索起始位置的第二个参数。<br>search() 方法搜索特定值的字符串，并返回匹配的位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;The full name of China is the People&apos;s Republic of China.&quot;;</span><br><span class="line">var pos = str.search(&quot;locate&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>提取部分字符串<br>有三种提取部分字符串的方法：</p>
+<p>slice(start, end)<br>substring(start, end)<br>substr(start, length)<br>replace() 方法用另一个值替换在字符串中指定的值：<br>通过 toUpperCase() 把字符串转换为大写：<br>通过 toLowerCase() 把字符串转换为小写：<br>concat() 连接两个或多个字符串：<br>trim()删除两边空白字符<br>charAt(position)方法返回字符串中指定索引的字符 unicode 编码：<br>charCodeAt(position) 提取字符串返回position位置的字符<br>可以通过 split() 将字符串转换为数组：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var txt = &quot;a,b,c,d,e&quot;;   // 字符串</span><br><span class="line">txt.split(&quot;,&quot;);          // 用逗号分隔</span><br><span class="line">txt.split(&quot; &quot;);          // 用空格分隔</span><br><span class="line">txt.split(&quot;|&quot;);          // 用竖线分隔</span><br><span class="line">如果分隔符是“” 返回数组是间隔单个字符的数组</span><br></pre></td></tr></table></figure></p>
+<h4 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h4><p>始终是64位的浮点数<br>用 64 位存储数值，其中 0 到 51 存储数字（片段），52 到 62 存储指数，63 位存储符号：<br>整数（不使用指数或科学计数法）会被精确到 15 位。<br>isNaN() 用于判断变量是否是数<br>Infinity 运算超过最大的数返回的值<br>toString 方法返回其他进制的字符串<br>toExponential() 参数定义小数点后面的字符数，返回字符串值，它包含已被四舍五入并使用指数计数法的数字。<br>toFixed() 返回字符串值，它包含了指定位数小数的数字：<br>MAX_VALUE    返回 JavaScript 中可能的最大数。<br>MIN_VALUE    返回 JavaScript 中可能的最小数。<br>NEGATIVE_INFINITY    表示负的无穷大（溢出返回）。<br>NaN    表示非数字值（”Not-a-Number”）。<br>POSITIVE_INFINITY    表示无穷大（溢出返回）。</p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">  firstName: &quot;Bill&quot;,</span><br><span class="line">  lastName : &quot;Gates&quot;,</span><br><span class="line">  id       : 678,</span><br><span class="line">  fullName : function() &#123;</span><br><span class="line">    return this.firstName + &quot; &quot; + this.lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>this 指的是函数的拥有者<br>对象属性的访问方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objectName.propertyName </span><br><span class="line">objectName[&quot;propertyName&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>使用new声明会被创建为对象</p>
+<h3 id="函数写法"><a href="#函数写法" class="headerlink" title="函数写法"></a>函数写法</h3><p>使用function定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function name(参数 1, 参数 2, 参数 3) &#123;</span><br><span class="line">    要执行的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var cars = new Array(&quot;Saab&quot;, &quot;Volvo&quot;, &quot;BMW&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>访问修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var name = cars[0];</span><br><span class="line">cars[0] = &quot;Opel&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>计数和排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = cars.length;   // length 属性返回元素的数量</span><br><span class="line">var y = cars.sort();   // sort() 方法对数组进行排序</span><br></pre></td></tr></table></figure></p>
+<p>遍历数组 使用for 或者foreach<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">for (i = 0; i &lt; fLen; i++) &#123;</span><br><span class="line">     text += &quot;&lt;li&gt;&quot; + fruits[i] + &quot;&lt;/li&gt;&quot;;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var fruits, text;</span><br><span class="line">fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line"></span><br><span class="line">text = &quot;&lt;ul&gt;&quot;;</span><br><span class="line">fruits.forEach(myFunction);</span><br><span class="line">text += &quot;&lt;/ul&gt;&quot;;</span><br><span class="line"></span><br><span class="line">function myFunction(value) &#123;</span><br><span class="line">  text += &quot;&lt;li&gt;&quot; + value + &quot;&lt;/li&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line">使用forEach操作</span><br></pre></td></tr></table></figure></p>
+<p>添加元素 最好的方法是push或者使用length属性添加元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line">fruits.push(&quot;Lemon&quot;);    </span><br><span class="line"></span><br><span class="line">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line">fruits[fruits.length] = &quot;Lemon&quot;;     // 向 fruits 添加一个新元素 (Lemon)</span><br></pre></td></tr></table></figure></p>
+<p>数组的识别<br>Array.isArray() 不支持劳的浏览器<br>自定义识别函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isArray(x) &#123;</span><br><span class="line">    return x.constructor.toString().indexOf(&quot;Array&quot;) &gt; -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>假如对象由给定的构造器创建，则 instanceof 运算符返回 true：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line"> </span><br><span class="line">fruits instanceof Array     // 返回 true</span><br></pre></td></tr></table></figure></p>
+<h5 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h5><p>JavaScript 方法 toString() 把数组转换为数组值（逗号分隔）的字符串。<br>join() 方法也可将所有数组元素结合为一个字符串。（传入的参数即为分隔符）<br>pop() 方法从数组中删除最后一个元素：返回弹出的值<br>push() 方法（在数组结尾处）向数组添加一个新的元素：返回新数组的长度<br>shift() 方法会删除首个数组元素，并把所有其他元素“位移”到更低的索引。返回被移除的字符串<br>unshift() 方法（在开头）向数组添加新元素，并“反向位移”旧元素：返回新数组长度<br>delate 删除元素<br>splice() 方法可用于向数组添加新项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line">fruits.splice(2, 0, &quot;Lemon&quot;, &quot;Kiwi&quot;);</span><br><span class="line">第一个参数（2）定义了应添加新元素的位置（拼接）。</span><br><span class="line">第二个参数（0）定义应删除多少元素。</span><br><span class="line">其余参数（“Lemon”，“Kiwi”）定义要添加的新元素。</span><br></pre></td></tr></table></figure>
+<p>concat() 方法通过合并（连接）现有数组来创建一个新数组：<br>slice() 方法用数组的某个片段切出新数组。<br>sort() 方法以字母顺序对数组进行排序：可以使用函数控制排序过程<br>reverse() 方法反转数组中的元素。<br>对象数组排序，使用比较函数来队比属性值<br>Array.forEach() 用于遍历<br>Array.map()<br>map() 方法通过对每个数组元素执行函数来创建新数组。<br>map() 方法不会对没有值的数组元素执行函数。<br>map() 方法不会更改原始数组。<br>Array.filter() 方法创建一个包含通过测试的数组元素的新数组。<br>Array.reduce()<br>reduce() 方法在每个数组元素上运行函数，以生成（减少它）单个值。<br>reduce() 方法在数组中从左到右工作。另请参见 reduceRight（）。<br>reduce() 方法不会减少原始数组。<br>Array.every()方法检查所有数组值是否通过测试。<br>接受三个参数：项目值，项目索引，数组本身<br>这里只列出部分方法</p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>onchange    HTML 元素已被改变<br>onclick    用户点击了 HTML 元素<br>onmouseover    用户把鼠标移动到 HTML 元素上<br>onmouseout    用户把鼠标移开 HTML 元素<br>onkeydown    用户按下键盘按键<br>onload    浏览器已经完成页面加载</p>
+<h3 id="流程语法"><a href="#流程语法" class="headerlink" title="流程语法"></a>流程语法</h3><h4 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if else语句"></a>if else语句</h4><p>if else<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">if (条件) &#123;</span><br><span class="line">    如果条件为 true 时执行的代码</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if (条件) &#123;</span><br><span class="line">    条件为 true 时执行的代码块</span><br><span class="line">&#125; else &#123; </span><br><span class="line">    条件为 false 时执行的代码块</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (条件 1) &#123;</span><br><span class="line">    条件 1 为 true 时执行的代码块</span><br><span class="line">&#125; else if (条件 2) &#123;</span><br><span class="line">    条件 1 为 false 而条件 2 为 true 时执行的代码块</span><br><span class="line"> &#125; else &#123;</span><br><span class="line">    条件 1 和条件 2 同时为 false 时执行的代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">switch(表达式) &#123;</span><br><span class="line">     case n:</span><br><span class="line">        代码块</span><br><span class="line">        break;</span><br><span class="line">     case n:</span><br><span class="line">        代码块</span><br><span class="line">        break;</span><br><span class="line">     default:</span><br><span class="line">        默认代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p>for 循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (语句 1; 语句 2; 语句 3) &#123;</span><br><span class="line">     要执行的代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>for in 循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;fname:&quot;Bill&quot;, lname:&quot;Gates&quot;, age:62&#125;; </span><br><span class="line"></span><br><span class="line">var text = &quot;&quot;;</span><br><span class="line">var x;</span><br><span class="line">for (x in person) &#123;</span><br><span class="line">    text += person[x];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>while<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while (条件) &#123;</span><br><span class="line">    要执行的代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>do while<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">do &#123;</span><br><span class="line">    要执行的代码块</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">while (条件);</span><br></pre></td></tr></table></figure></p>
+<h2 id="quickjs"><a href="#quickjs" class="headerlink" title="quickjs"></a>quickjs</h2><h3 id="修改代码反编译字节码"><a href="#修改代码反编译字节码" class="headerlink" title="修改代码反编译字节码"></a>修改代码反编译字节码</h3><p>在2020-7-5 的版本中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">85c85</span><br><span class="line">&lt; //#define DUMP_BYTECODE  (1)</span><br><span class="line">---</span><br><span class="line">&gt; #define DUMP_BYTECODE  (1)</span><br><span class="line">99c99</span><br><span class="line">&lt; //#define DUMP_READ_OBJECT</span><br><span class="line">---</span><br><span class="line">&gt; #define DUMP_READ_OBJECT</span><br><span class="line">34812a34813,34815</span><br><span class="line">&gt; #if DUMP_BYTECODE</span><br><span class="line">&gt;             js_dump_function_bytecode(ctx, b);</span><br><span class="line">&gt; #endif</span><br></pre></td></tr></table></figure></p>
+<p>对修改的c 编译的命令<br>gcc crackme.c libquickjs.a -lm -ldl -lpthread</p>
+<p>编译quick-js能用的so<br>gcc c_test_m.c libquickjs.lto.a  -fPIC -shared -o libtest.so</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/05/30/js学习/">js学习</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 天河 的个人博客">天河</a></p>
+        <p><span>发布时间:</span>2019年05月30日 - 22时24分</p>
+        <p><span>最后更新:</span>2020年07月30日 - 16时30分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/30/js学习/" title="js学习">http://yoursite.com/2019/05/30/js学习/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/30/js学习/　　作者: 天河" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/05/30/fuzz/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          fuzz
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/30/libfuzz输出内容简析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">fuzz</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码例子"><span class="toc-number">1.</span> <span class="toc-text">代码例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础使用"><span class="toc-number">2.1.</span> <span class="toc-text">基础使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外部引用"><span class="toc-number">2.2.</span> <span class="toc-text">外部引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出信息"><span class="toc-number">2.3.</span> <span class="toc-text">输出信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义函数"><span class="toc-number">2.4.</span> <span class="toc-text">定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写注意"><span class="toc-number">2.5.</span> <span class="toc-text">编写注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-number">2.6.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标识符"><span class="toc-number">2.7.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符"><span class="toc-number">2.8.</span> <span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型"><span class="toc-number">2.9.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串"><span class="toc-number">2.9.1.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串方法"><span class="toc-number">2.9.1.1.</span> <span class="toc-text">字符串方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数值"><span class="toc-number">2.9.2.</span> <span class="toc-text">数值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象"><span class="toc-number">2.9.3.</span> <span class="toc-text">对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数写法"><span class="toc-number">2.10.</span> <span class="toc-text">函数写法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数组"><span class="toc-number">2.10.1.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数组方法"><span class="toc-number">2.10.1.1.</span> <span class="toc-text">数组方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件"><span class="toc-number">2.11.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程语法"><span class="toc-number">2.12.</span> <span class="toc-text">流程语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if-else语句"><span class="toc-number">2.12.1.</span> <span class="toc-text">if else语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#switch"><span class="toc-number">2.12.2.</span> <span class="toc-text">switch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#循环"><span class="toc-number">2.12.3.</span> <span class="toc-text">循环</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#quickjs"><span class="toc-number">3.</span> <span class="toc-text">quickjs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改代码反编译字节码"><span class="toc-number">3.1.</span> <span class="toc-text">修改代码反编译字节码</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'tianheshuangxue',
+      repo: 'tianheshuangxue.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/05/30/fuzz/" title="上一篇: fuzz">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/05/30/libfuzz输出内容简析/" title="下一篇: fuzz">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/qt使用/">qt使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/Android真机调试/">android</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/Android逆向技巧/">Android 逆向技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/Android脱壳/">android</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/IDA 插件的疑难杂症/">tool,IDA</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/alf-fuzz代码分析(一)/">afl-fuzz代码分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android_渗透/">android</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android_avd/">android</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android防护/">android</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/fuzz/">fuzz</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/js学习/">js学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/libfuzz输出内容简析/">fuzz</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/patcherex安装/">patcherex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/Android_debug/">android_debug</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/python_user/">python</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/sage数学工具/">Crypto</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/wifi_tools/">wifi</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/乐理知识/">乐理只是</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/vmware安装/">vmware_note</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/区块链安全/">区块链安全</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/内存取证工具Volatility/">Volatility</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/去除带有不良信息的广告/">去除带有不良信息的广告</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/小程序开发/">微信小程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/可视化界面开发/">可视化界面开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/逆向出题常规思路/">逆向出题思路</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/pwn小记/">pwn小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/awd/">awd</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 天河
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 13;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
