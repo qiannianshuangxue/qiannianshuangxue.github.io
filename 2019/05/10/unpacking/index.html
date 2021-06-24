@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>unpacking | 天河的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="脱壳的常见方法">
+<meta name="keywords" content="Crypto">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unpacking">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/unpacking/index.html">
+<meta property="og:site_name" content="天河的随笔">
+<meta property="og:description" content="脱壳的常见方法">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-06-17T08:39:37.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="unpacking">
+<meta name="twitter:description" content="脱壳的常见方法">
+  
+    <link rel="alternative" href="/atom.xml" title="天河的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">天河</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">ko no 天河 da!</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="/ tianhe@chamd5.org" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiannianshuangxue" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/CTF/" style="font-size: 12px;">CTF</a> <a href="/tags/Crypto/" style="font-size: 10px;">Crypto</a> <a href="/tags/MISC/" style="font-size: 10px;">MISC</a> <a href="/tags/PWN/" style="font-size: 16px;">PWN</a> <a href="/tags/RE/" style="font-size: 12px;">RE</a> <a href="/tags/android/" style="font-size: 18px;">android</a> <a href="/tags/angr/" style="font-size: 10px;">angr</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/avd/" style="font-size: 10px;">avd</a> <a href="/tags/bin/" style="font-size: 12px;">bin</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/patcherex/" style="font-size: 10px;">patcherex</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/tool/" style="font-size: 20px;">tool</a> <a href="/tags/vmware/" style="font-size: 10px;">vmware</a> <a href="/tags/writeup/" style="font-size: 14px;">writeup</a> <a href="/tags/取证/" style="font-size: 12px;">取证</a> <a href="/tags/开发/" style="font-size: 10px;">开发</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/音乐/" style="font-size: 10px;">音乐</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://pcat.cnblogs.com/">pact</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我因世界而改变,世界也因我而改变。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">天河</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">天河</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">ko no 天河 da!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="/ tianhe@chamd5.org" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiannianshuangxue" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-unpacking" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/10/unpacking/" class="article-date">
+      <time datetime="2019-05-10T11:39:22.000Z" itemprop="datePublished">2019-05-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      unpacking
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/脱壳/">脱壳</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crypto/">Crypto</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <a id="more"></a>  
+<blockquote>
+<p>加壳的全称应该是可执行程序资源压缩，压缩后的程序可以直接运行。加壳的另一种常用的方式是在二进制的程序中植入一段代码，在运行的时候优先取得程序的控制权，之后再把控制权交还给原始代码，这样做的目的是隐藏程序真正的OEP(入口点，防止被破解)。大多数病毒就是基于此原理。</p>
+</blockquote>
+<p>这里介绍一下常见的脱壳方法</p>
+<h3 id="单步跟踪法"><a href="#单步跟踪法" class="headerlink" title="单步跟踪法"></a>单步跟踪法</h3><p>单步执行直到遇到大的跳转跨段 比如JMP JE 绿色为不跳红色的线是跳转</p>
+<h3 id="ESP定律法"><a href="#ESP定律法" class="headerlink" title="ESP定律法"></a>ESP定律法</h3><p>在第一次指令执行后ESP地址处下硬件访问断点word断点然后F8几次就进入了入口点</p>
+<h3 id="内存镜像法"><a href="#内存镜像法" class="headerlink" title="内存镜像法"></a>内存镜像法</h3><p>用OD打开软件<br>点击选项——调试选项——异常，把里面的忽略全部√上。CTRL+F2重载下程序<br>按ALT+M,打开内存镜象，找到程序的第一个.rsrc.按F2下断点，然后按SHIFT+F9运  行到断点，接着再按ALT+M,打开内存镜象，找到程序的第一个.rsrc.上面的.CODE（也   就是00401000处），按F2下断点。然后按SHIFT+F9（或者是在没异常情况下按F9），  直接到达程序OEP<br>不适用于UPX(貌似)</p>
+<h3 id="一步到达OEP"><a href="#一步到达OEP" class="headerlink" title="一步到达OEP"></a>一步到达OEP</h3><p>（1）开始按Ctrl+F,输入：popad（只适合少数壳，包括UPX，ASPACK壳），然后按下F2，  F9运行到此处<br>（2）来到大跳转处，点下F8，到达OEP</p>
+<h3 id="模拟跟踪法"><a href="#模拟跟踪法" class="headerlink" title="模拟跟踪法"></a>模拟跟踪法</h3><p>（1）先试运行，跟踪一下程序，看有没有SEH暗桩之类<br>（2）ALT+M打开内存镜像，找到（包含那一列中出现SFX,imports,relocations或者SFX,输  入表，重定位）<br>（3）若地址为00xxxxxx在命令行下输入tc eip&lt;00xxxxxx，回车，提示正在跟踪</p>
+<h3 id="最后一次异常法"><a href="#最后一次异常法" class="headerlink" title="最后一次异常法"></a>最后一次异常法</h3><p>（1）用OD打开软件<br>（2）点击选项——调试选项——异常，把里面的√全部去掉！CTRL+F2重载下程序<br>（3）一开始程序就是一个跳转，在这里我们按SHIFT+F9，直到程序运行，记下从开始按SHIFT+F9到程序运行的次数m<br>（4）CTRL+F2重载程序，按SHIFT+F9（这次按的次数为程序运行的次数m-1次）<br>（5）在OD的右下角我们看见有一个”SE 句柄”，这时我们按CTRL+G，输入SE 句柄前的地址<br>（6）按F2下断点，然后按SHIFT+F9来到断点处<br>（7）去掉断点，按F8慢慢向下走<br>（8）到达程序的OEP</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/05/10/unpacking/">unpacking</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 天河 的个人博客">天河</a></p>
+        <p><span>发布时间:</span>2019年05月10日 - 19时39分</p>
+        <p><span>最后更新:</span>2019年06月17日 - 16时39分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/10/unpacking/" title="unpacking">http://yoursite.com/2019/05/10/unpacking/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/10/unpacking/　　作者: 天河" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/05/30/vmware安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          vmware_note
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/09/SymbolicExecution/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SymbolicExecution</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#单步跟踪法"><span class="toc-number">1.</span> <span class="toc-text">单步跟踪法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESP定律法"><span class="toc-number">2.</span> <span class="toc-text">ESP定律法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存镜像法"><span class="toc-number">3.</span> <span class="toc-text">内存镜像法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一步到达OEP"><span class="toc-number">4.</span> <span class="toc-text">一步到达OEP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟跟踪法"><span class="toc-number">5.</span> <span class="toc-text">模拟跟踪法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后一次异常法"><span class="toc-number">6.</span> <span class="toc-text">最后一次异常法</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'tianheshuangxue',
+      repo: 'tianheshuangxue.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/05/30/vmware安装/" title="上一篇: vmware_note">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/04/09/SymbolicExecution/" title="下一篇: SymbolicExecution">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/Android_debug/">android_debug</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/pwn小记/">pwn小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/Android真机调试/">android真机调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android_avd/">android_avd</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android_渗透/">android_渗透</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/js学习/">js学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android防护/">android防护手段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/patcherex安装/">patcherex安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/乐理知识/">乐理知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/去除带有不良信息的广告/">去除带有不良信息的广告</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/内存取证工具Volatility/">Volatility安装使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/vmware安装/">vmware_note</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/10/unpacking/">unpacking</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/09/SymbolicExecution/">SymbolicExecution</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/汇编指令/">不认识的汇编指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/05/格式化字符串漏洞/">格式化字符串漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/php调试/">php调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/实验吧writeup/">实验吧writeup</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/docker使用/">docker使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/pwnable-writeup2/">pwnable_writeup2</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/C相关函数/">C相关函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/linux下的特殊符号与shell编程/">linux下的特殊符号与shell编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/pwnable-writeup/">pwnable_writeup</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 天河
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 13;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

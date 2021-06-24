@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>linux下的特殊符号与shell编程 | 天河的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="linux下特殊符号">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux下的特殊符号与shell编程">
+<meta property="og:url" content="http://yoursite.com/2018/06/20/linux下的特殊符号与shell编程/index.html">
+<meta property="og:site_name" content="天河的随笔">
+<meta property="og:description" content="linux下特殊符号">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-01-01T15:14:27.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux下的特殊符号与shell编程">
+<meta name="twitter:description" content="linux下特殊符号">
+  
+    <link rel="alternative" href="/atom.xml" title="天河的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">天河</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">ko no 天河 da!</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="/ tianhe@chamd5.org" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiannianshuangxue" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/CTF/" style="font-size: 12px;">CTF</a> <a href="/tags/Crypto/" style="font-size: 10px;">Crypto</a> <a href="/tags/MISC/" style="font-size: 10px;">MISC</a> <a href="/tags/PWN/" style="font-size: 16px;">PWN</a> <a href="/tags/RE/" style="font-size: 12px;">RE</a> <a href="/tags/android/" style="font-size: 18px;">android</a> <a href="/tags/angr/" style="font-size: 10px;">angr</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/avd/" style="font-size: 10px;">avd</a> <a href="/tags/bin/" style="font-size: 12px;">bin</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/patcherex/" style="font-size: 10px;">patcherex</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/pwn/" style="font-size: 10px;">pwn</a> <a href="/tags/tool/" style="font-size: 20px;">tool</a> <a href="/tags/vmware/" style="font-size: 10px;">vmware</a> <a href="/tags/writeup/" style="font-size: 14px;">writeup</a> <a href="/tags/取证/" style="font-size: 12px;">取证</a> <a href="/tags/开发/" style="font-size: 10px;">开发</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/音乐/" style="font-size: 10px;">音乐</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://pcat.cnblogs.com/">pact</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我因世界而改变,世界也因我而改变。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">天河</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">天河</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">ko no 天河 da!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="/ tianhe@chamd5.org" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiannianshuangxue" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-linux下的特殊符号与shell编程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/20/linux下的特殊符号与shell编程/" class="article-date">
+      <time datetime="2018-06-20T02:53:58.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux下的特殊符号与shell编程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/writeup/">writeup</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <a id="more"></a>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><p>shutdown –h now 立该进行关机<br>shudown -h 1 “hello, 1 分钟后会关机了”<br>shutdown –r now 现在重新启动计算机<br>halt 关机，作用和上面一样.<br>reboot 现在重新启动计算机<br>sync 把内存的数据同步到磁</p>
+<h3 id="ls-列目录"><a href="#ls-列目录" class="headerlink" title="ls 列目录"></a>ls 列目录</h3><p>选项与参数：<br>-a ：全部的文件，连同隐藏文件（ 开头为 . 的文件） 一起列出来（常用）<br>-A ：全部的文件，连同隐藏文件，但不包括 . 与 .. 这两个目录<br>-d ：仅列出目录本身，而不是列出目录内的文件数据（常用）<br>-f ：直接列出结果，而不进行排序 （ls 默认会以文件名排序！）<br>-F ：根据文件、目录等信息，给予附加数据结构，例如：<br>*:代表可可执行文件； /:代表目录； =:代表 socket 文件； &#124;:代表 FIFO 文件；<br>-h ：将文件大小以人类较易读的方式（例如 GB, KB 等等）列出来；<br>-i ：列出 inode 号码，inode 的意义下一章将会介绍；<br>-l ：长数据串行出，包含文件的属性与权限等等数据；（常用）<br>-n ：列出 UID 与 GID 而非使用者与群组的名称 （UID与GID会在帐号管理提到！）<br>-r ：将排序结果反向输出，例如：原本文件名由小到大，反向则为由大到小；<br>-R ：连同子目录内容一起列出来，等于该目录下的所有文件都会显示出来；<br>-S ：以文件大小大小排序，而不是用文件名排序；<br>-t ：依时间排序，而不是用文件名。<br>–color=never ：不要依据文件特性给予颜色显示；<br>–color=always ：显示颜色<br>–color=auto ：让系统自行依据设置来判断是否给予颜色<br>–full-time ：以完整时间模式 （包含年、月、日、时、分） 输出<br>–time={atime,ctime} ：输出 access 时间或改变权限属性时间 （ctime）<br>而非内容变更时间 </p>
+<h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><p>选项与参数：<br>-a ：相当于 -dr –preserve=all 的意思，至于 dr 请参考下列说明；（常用）<br>-d ：若来源文件为链接文件的属性（link file），则复制链接文件属性而非文件本身；<br>-f ：为强制（force）的意思，若目标文件已经存在且无法打开，则移除后再尝试一次；<br>-i ：若目标文件（destination）已经存在时，在覆盖时会先询问动作的进行（常用）<br>-l ：进行硬式链接（hard link）的链接文件创建，而非复制文件本身；<br>-p ：连同文件的属性（权限、用户、时间）一起复制过去，而非使用默认属性（备份常用<br>）；<br>-r ：递回持续复制，用于目录的复制行为；（常用）<br>-s ：复制成为符号链接文件 （symbolic link），亦即“捷径”文件；<br>-u ：destination 比 source 旧才更新 destination，或 destination 不存在的情况下才复制。<br>–preserve=all ：除了 -p 的权限相关参数外，还加入 SELinux 的属性, links, xattr 等也复制了</p>
+<h3 id="which"><a href="#which" class="headerlink" title="which"></a>which</h3><p>命令名称：which<br>命令所在路径：/usr/bin/which<br>执行权限：所有用户<br>功能描述：显示系统命令所在目录<br>语法：which[命令名称]<br>范例：$which ls</p>
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>命令名称：find<br>命令所在路径：/usr/bin/find<br>执行权限：所有用户<br>功能描述：查找文件或目录<br>语法：find [搜索路径][搜寻关键字]<br>范例：<br>$ find /etc –name init<br>在目录/etc中查找文件init<br>$find / -size +204800<br>在根目录下查找大于100MB的文件<br>$find / -user sam<br>在根目录下 查找所有者 为sam的文件<br>$find / -ctime n<br>在根目录下查找n天前的文件</p>
+<h3 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h3><p>命令名称：locate<br>命令英文原义：list files in databases<br>命令所在路径：/usr/bin/locate<br>执行权限：所有用户<br>功能描述：寻找文件或目录<br>语法：locate[搜索路径]<br>范例：$locate file<br>列出所有跟file相关的文件</p>
+<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><p>命令名称：grep<br>命令所在路径：/bin/grep<br>执行权限：所有用户<br>功能描述：在文件中搜寻字串匹配的行并输出<br>语法：grep [指定字串][源文件]<br>范例：#grep ftp /etc/servic</p>
+<h3 id="useradd-adduser-添加用户"><a href="#useradd-adduser-添加用户" class="headerlink" title="useradd | adduser 添加用户"></a>useradd | adduser 添加用户</h3><p>命令：useradd，adduser<br>useradd 选项 用户名<br>其中各选项含义如下：<br>-c comment 指定一段注释性描述。<br>-d 目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可<br>以创建主目录。<br>-g 用户组 指定用户所属的用户组。<br>-G 用户组，用户组 指定用户所属的附加组。<br>-s Shell文件 指定用户的登录Shell。<br>-u 用户号 指定用户的用户号<br>如：useradd -m -s /bin/bash kaixin</p>
+<h1 id="useradd-–d-usr-sam-sam"><a href="#useradd-–d-usr-sam-sam" class="headerlink" title="useradd –d /usr/sam sam"></a>useradd –d /usr/sam sam</h1><p>此命令创建了一个用户sam， 主目录/usr/sam</p>
+<h1 id="useradd-s-bin-sh-g-group-–G-adm-root-gem"><a href="#useradd-s-bin-sh-g-group-–G-adm-root-gem" class="headerlink" title="useradd -s /bin/sh -g group –G adm,root gem"></a>useradd -s /bin/sh -g group –G adm,root gem</h1><p>此命令新建了一个用户gem，该用户的登录Shell是/bin/sh，它<br>属于group用户组，同时又属于adm和root用户组，其中group用户<br>组是其主组。<br>这里可能新建组：#groupadd group及groupadd adm</p>
+<h3 id="userdel-删除用户"><a href="#userdel-删除用户" class="headerlink" title="userdel 删除用户"></a>userdel 删除用户</h3><p>-r 连同用户主目录一起删除</p>
+<h3 id="usermod-用户修改"><a href="#usermod-用户修改" class="headerlink" title="usermod 用户修改"></a>usermod 用户修改</h3><p>修改用户账号就是根据实际情况更改用户的有关属性，如用户<br>号、主目录、用户组、登录Shell等。<br>修改已有用户的信息使用usermod命令，其格式如下：<br>usermod 选项 用户名<br>常用的选项包括-c, -d, -g, -G, -s, -u以及等，这些选项的意义与<br>useradd命令中的选项一样，可以为用户指定新的资源值。</p>
+<h1 id="usermod-s-bin-ksh-d-home-z-–g-developer-sam"><a href="#usermod-s-bin-ksh-d-home-z-–g-developer-sam" class="headerlink" title="usermod -s /bin/ksh -d /home/z –g developer sam"></a>usermod -s /bin/ksh -d /home/z –g developer sam</h1><p>此命令将用户sam的登录Shell修改为ksh，主目录改为/home/z<br>，用户组改为developer<br>usermod -g组名 -G 组名 -d 用户主目录 -s 用户Shell </p>
+<h3 id="passwd-修改密码"><a href="#passwd-修改密码" class="headerlink" title="passwd 修改密码"></a>passwd 修改密码</h3><p>passwd 选项 用户名<br>可使用的选项：<br>-l 锁定口令，即禁用账号。<br>-u 口令解锁。<br>-d 使账号无口令。<br>-f 强迫用户下次登录时修改口令。</p>
+<h3 id="groupadd-添加用户组"><a href="#groupadd-添加用户组" class="headerlink" title="groupadd 添加用户组"></a>groupadd 添加用户组</h3><p>可以使用的选项有：<br>-g GID 指定新用户组的组标识号（GID）。<br>-o 一般与-g选项同时使用，表示新用户组的GID可以与系统已有用户组的GID<br>相同。<br>例1： # groupadd group1<br>此命令向系统中增加了一个新组group1，新组的组标识号是在当前已有的最<br>大组标识号的基础上加1。<br>例2： #groupadd -g 101 group2<br>此命令向系统中增加了一个新组group2，同时指定新组的组标识号是101</p>
+<h3 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h3><p>groupdel group1<br>此命令从系统中删除组group1</p>
+<h3 id="groupmod-修改组"><a href="#groupmod-修改组" class="headerlink" title="groupmod 修改组"></a>groupmod 修改组</h3><p>groupmod 选项 用户组<br>常用的选项有：<br>-g GID 为用户组指定新的组标识号。<br>-o 与-g选项同时使用，用户组的新GID可以与系统已有用户组的GID相同。<br>-n新用户组 将用户组的名字改为新名字<br>例1： # groupmod -g 102 group2<br>此命令将组group2的组标识号修改为102。<br>例2： # groupmod –g 10000 -n group3 group2<br>此命令将组group2的标识号改为10000，组名修改为group3</p>
+<h3 id="newgrp-切换用户主组"><a href="#newgrp-切换用户主组" class="headerlink" title="newgrp 切换用户主组"></a>newgrp 切换用户主组</h3><p>$ newgrp root<br>这条命令将当前用户切换到root用户组，前提条件是root用户<br>组确实是该用户的主组或附加组。</p>
+<h3 id="linux权限"><a href="#linux权限" class="headerlink" title="linux权限"></a>linux权限</h3><p>第一个字符：<br>-代表文件<br>d代表目录<br>l代表链接<br>c代表字符型设备<br>b代表块设备<br>n代表网络设备<br>后面的字符：<br>3个字符一组<br>第一组 对象的属主<br>第二组 对象的属组<br>第三组 系统其他用户<br>r代表对象是可读的<br>w代表对象是可写的<br>x代表对象是可执行的</p>
+<ul>
+<li>代表没有该<br>chmod 更改权限<br>在符号模式<br>下指定权限的格式。<br>[ugoa…][[+-=][rwxXstugo…]<br>u代表用户<br>g代表组<br>o代表其他<br>a代表上述所有<br>X：如果对象是目录或者它已有执行权限，赋予执行权限。<br>s：运行时重新设置UID或GID。<br>t：保留文件或目录。<br>u：将权限设置为跟属主一样。<br>g：将权限设置为跟属组一样。<br>o：将权限设置为跟其他用户一样。</li>
+</ul>
+<p>Linux提供了两个命令来实现这个功能：chown命令用来改变文件<br>的属主，chgrp命令用来改变文件的默认属组。<br>chown命令的格式如下。<br>chown options owner[.group] file<br>可用登录名或UID来指定文件的新属主。</p>
+<h1 id="chown-dan-newfile"><a href="#chown-dan-newfile" class="headerlink" title="chown dan newfile"></a>chown dan newfile</h1><h1 id="ls-l-newfile"><a href="#ls-l-newfile" class="headerlink" title="ls -l newfile"></a>ls -l newfile</h1><p>-rw-rw-r– 1 dan rich 0 Sep 20 19:16 newfile</p>
+<p>#非常简单。chown命令也支持同时改变文件的属主和属组。</p>
+<h1 id="chown-dan-shared-newfile"><a href="#chown-dan-shared-newfile" class="headerlink" title="chown dan.shared newfile"></a>chown dan.shared newfile</h1><h1 id="ls-l-newfile-1"><a href="#ls-l-newfile-1" class="headerlink" title="ls -l newfile"></a>ls -l newfile</h1><p>-rw-rw-r– 1 dan shared 0 Sep 20 19:16 newfile<br>chgrp命令可以更改文件或目录的默认属组$ chgrp shared newfil<br>$ ls -l newfile<br>-rw-rw-r– 1 rich shared 0 Sep 20 19:16 newfil<br>umask 0002 默认创建文件权限<br>文件默认权限666<br>目录默认权限777<br>减去 umask<br>ACL<br>ACL 的设置技巧<br>getfacl：取得某个文件/目录的 ACL 设置项目<br>setfacl：设置某个目录/文件的 ACL<br>[root@study ~]# setfacl [-bkRd] [{-m | -x} acl参数] 目标文件名<br>选项与参数：<br>-m ：设置后续的 acl 参数给文件使用，不可与 -x 合用；<br>-x ：删除后续的 acl 参数，不可与 -m 合用；<br>-b ：移除“所有的” ACL 设置参数；<br>-k ：移除“默认的” ACL 参数，关于所谓的“默认”参数于后续范例<br>中介绍；<br>-R ：递回设置 acl ，亦即包括次目录都会被设置起来；<br>-d ：设置“默认 acl 参数”的意思！只对目录有效，在该目录新建的数<br>据会引用此默认值</p>
+<p>①、给用户设定 ACL 权限：setfacl -m u:用户名:权限 指定文件名<br>②、给用户组设定 ACL 权限:setfacl -m g:组名:权限 指定文件名</p>
+<p>g:群组名:权限<br>针对特定群组的方式：</p>
+<h1 id="设置规范：“-g-群组列表-rwx-”，例如针对-mygroup1-的权限规范-rx-："><a href="#设置规范：“-g-群组列表-rwx-”，例如针对-mygroup1-的权限规范-rx-：" class="headerlink" title="设置规范：“ g:[群组列表]:[rwx] ”，例如针对 mygroup1 的权限规范 rx ："></a>设置规范：“ g:[群组列表]:[rwx] ”，例如针对 mygroup1 的权限规范 rx ：</h1><p>[root@study ~]# setfacl -m g:mygroup1:rx acl_test1<br>[root@study ~]# getfacl acl_test1</p>
+<h1 id="file-acl-test1"><a href="#file-acl-test1" class="headerlink" title="file: acl_test1"></a>file: acl_test1</h1><h1 id="owner-root"><a href="#owner-root" class="headerlink" title="owner: root"></a>owner: root</h1><h1 id="group-root"><a href="#group-root" class="headerlink" title="group: root"></a>group: root</h1><p>user::rwx<br>user:vbird1:r-x<br>group::r–<br>group:mygroup1:r-x 这里就是新增的部分！多了这个群组的权限设置！<br>mask::r-x<br>other::r–</p>
+<p>m:权限<br>使用者或群组所设置的权限必须要存在于 mask 的权限设置范围<br>内才会生效，此即“有效权限 （effective permission）”</p>
+<p>删除ACL有效权限</p>
+<p>①、删除指定用户的 ACL 权限<br>setfacl -x u:用户名 文件名<br>②、删除指定用户组的 ACL 权限<br>setfacl -x g:组名 文件名<br>③、删除文件的所有 ACL 权限<br>setfacl -b 文件名</p>
+<p>如果给父目录设定了默认的 ACL 权限，那么父目录中所有新建<br>的子文件会继承父目录的 ACL 权限。<br>setfacl -m d:u:用户名:权限 文件名</p>
+<p>su<br>[root@study ~]# su [-lm] [-c 指令] [username]<br>选项与参数：</p>
+<ul>
+<li>：单纯使用 - 如“ su - ”代表使用 login-shell 的变量文件读取方式来登<br>陆系统；<br>若使用者名称没有加上去，则代表切换为 root 的身份。<br>-l ：与 - 类似，但后面需要加欲切换的使用者帐号！也是 login-shell 的<br>方式。<br>-m ：-m 与 -p 是一样的，表示“使用目前的环境设置，而不读取新使用<br>者的配置文件”<br>-c ：仅进行一次指令，所以 -c 后面可以加上”指令<br>[root@study ~]# sudo [-b] [-u 新使用者帐号]<br>选项与参数：<br>-b ：将后续的指令放到背景中让系统自行执行，而不与目前的 shell 产生影响<br>-u ：后面可以接欲切换的使用者，若无此项则代表切换身份为 root 。<br>不加[-u 新使用者帐号]时，默认执行root账号权</li>
+</ul>
+<p>SUID, SGID, SBIT<br>Set UID：当 s 这个标志出现在文件拥有者的 x 权限上时，权限状<br>态：-rwsr-xr-x，此时就被称为 Set UID，简称为 SUID 的特殊权限<br>SUID 权限仅对二进制程序（binary program）有效；<br>执行者对于该程序需要具有 x 的可执行权限；<br>本权限仅在执行该程序的过程中有效 （run-time）；<br>执行者将具有该程序拥有者 （owner） 的权限</p>
+<p>Set GID<br>当 s 标志在文件拥有者的 x 项目为 SUID，那 s 在群组的 x 时则<br>称为 Set GID。如/usr/bin/mlocate。<br>与 SUID 不同的是，SGID 可以针对文件或目录来设置。<br>对文件来说， SGID 有如下的功能：<br> SGID 对二进制程序有<br> 程序执行者对于该程序来说，需具备 x 的权限；<br> 执行者在执行的过程中将会获得该程序群组的支持用<br>SUID/SGID/SBIT 权限设置<br>4 为 SUID<br>2 为 SGID<br>1 为 SBIT<br>在原来三位数前加上一位数（4、2、1</p>
+<p>探查进程<br>$ ps<br>PID TTY TIME CMD<br>3081 pts/0 00:00:00 bash<br>3209 pts/0 00:00:00 ps<br>$基本输出显示了程序的进程ID（Process ID，PID）、它们运行在<br>哪个终端（TTY）以及进程已用的CPU时</p>
+<p>top实时监测进程<br>信 号 名 称 描 述<br>1 HUP 挂起<br>2 INT 中断<br>3 QUIT 结束运行<br>9 KILL 无条件终止<br>11 SEGV 段错误<br>15 TERM 尽可能终止<br>17 STOP 无条件停止运行，但不终止<br>18 TSTP 停止或暂停，但继续在后台运行<br>19 CONT 在STOP或TSTP之后恢复执行</p>
+<h3 id="压缩与解压缩"><a href="#压缩与解压缩" class="headerlink" title="压缩与解压缩"></a>压缩与解压缩</h3><p>gzip 选项 文件<br>gunzip 选项文件</p>
+<p>tar 打包目录<br>语法：tar 选项[cvf][目录]<br>-c 产生.tar打包文件<br>-v 显示详细信息<br>-f 指定压缩后的文件名<br>-z 打包同时压缩<br>$tar -zcvf dir1.tar.gz dir1<br>将目录dir1压缩成一个打包并压缩的文件</p>
+<p>Tar命令解压缩语法：<br>-x 解包.tar文件<br>-v 显示详细信息<br>-f 指定解压文件<br>-z 解压缩<br>范例： $tar –zxvf dir1.tar.gz</p>
+<p>功能描述：压缩文件或目录<br>语法：zip 选项[-r][压缩后文件名称][文件或目录<br>-r 压缩目录<br>压缩后文件格式：.zip<br>范例：<br>$zip services.zip /etc/services<br>压缩文件<br>$zip –r test.zip /test<br>压缩目录<br>语法：unzip[压缩文件]<br>压缩后文件格式：.zip<br>范例：$unzip test.zip</p>
+<p>bzip2<br>语法：bzip2 选项[-k][文件]<br>-k 产生压缩文件后保留原文件<br>压缩后文件格式：.bz2<br>范例：$bzip2 –k fil</p>
+<p>bunzip2<br>语法：bunzip2 选项[-k][压缩文件]<br>-k 解压缩文件后保留原文件<br>压缩后文件格式：.bz<br>范例：$bunzip2 –k file1.b</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>全局环境变量对于shell会话和所有生成的子shell都是可见的。<br>要查看全局变量，可以使用env或printenv命令。<br>要显示个别环境变量的值，可以使用printenv命令，但是不要用<br>env命令<br>echo 显示变量值<br>echo $home<br>set命令会显示为某个特定进程设置的所有环境变量，包括局部<br>变量、全局变量以及用户定义变量。<br>在设定全局环境变量的进程所创建的子进程中，该变量都是可见的。创<br>建全局环境变量的方法是先创建一个局部环境变量，然后再把它导出到<br>全局环境中。<br>通过export命令来完成，变量名前面不需要加$<br>修改子shell中全局环境变量并不会影响到父shell中该变量的值。<br>子shell也无法使用export命令改变父shell中全局环境变量的值。</p>
+<p>可以用unset命令删除环境变量。在unset命令中引用环境变量时，<br>记住不要使用$。<br>在处理全局环境变量时，如果在子进程中删除了一个全局环境变量，这<br>只对子进程有效。该全局环境变量在父进程中依然可用。</p>
+<p>HOME 当前用户的主目录<br>IFS shell用来将文本字符串分割成字段的一系列字符<br>PATH shell查找命令的目录列表，由冒号分隔<br>BASH 当前shell实例的全路径名<br>HOSTNAME 当前主机的名称<br>UID 当前用户的真实用户ID（数字形式)</p>
+<p>PATH环境变量<br>PATH=$PATH:/home/christine/Scripts<br>当你在shell命令行界面中输入一个外部命令时，shell必须搜索系<br>统来找到对应的程序。PATH环境变量定义了用于进行命令和程<br>序查找的目录。</p>
+<p>数组是能够存储多个值的变量。这些值可以单独引用，也可以<br>作为整个数组来引用。要给某个环境变量设置多个值，可以把<br>值放在括号里，值与值之间用空格分隔。<br>$ mytest=(one two three four five) // 建立一个数组变量<br>$ echo ${mytest[2]} // 引用数组变量中的值<br>Three<br>$ echo ${mytest[*]}<br>one two three four fiv<br>$ mytest[2]=seven // 修改数组变量中的值<br>$ unset mytest[2] // 删除数组变量中的值<br>$ unset mytest // 删除数组</p>
+<h3 id="vim-用法"><a href="#vim-用法" class="headerlink" title="vim 用法"></a>vim 用法</h3><p>普通模式<br>h：左移一个字符。<br>j：下移一行（文本中的下一行）。<br>k：上移一行（文本中的上一行）。<br>l：右移一个字符。<br>PageDown（或Ctrl+F）：下翻一屏。<br>PageUp（或Ctrl+B）：上翻一屏。<br>G：移到缓冲区的最后一行。<br>num G：移动到缓冲区中的第num行。<br>gg：移到缓冲区的第一<br>x 删除当前光标所在位置的字符<br>dd 删除光标所在的行<br>dw 删除光标所在位置的单词<br>d$ 删除当前光标所在行行尾的换行符<br>u 撤销前一编辑命令<br>a 在当前光标后追加数据<br>A 在当前光标所在行行尾追加数据<br>r char 用char 替换当前光标所在位置的单个字符<br>R text 用text覆盖当前光标所在位置的数据包 知道按下ESC<br>p 取回数据 相当于撤销<br>插入模式<br>输入i<br>命令行模式<br>普通模式下 : 进入命令行模式<br>查找和替换<br>要输入一个查找字符串，就按下斜线（/）键。光标会跑到消息<br>行，然后vim会显示出斜线。在输入你要查找的文本后，按下回<br>车键。<br>替换命令的格式是：:s/old/new/<br>:s/old/new/g：一行命令替换所有old。<br>:n,ms/old/new/g：替换行号n和m之间所有old。<br>:%s/old/new/g：替换整个文件中的所有old。<br>:%s/old/new/gc：替换整个文件中的所有old，但在每次出现时提示</p>
+<h3 id="echo-命令"><a href="#echo-命令" class="headerlink" title="echo 命令"></a>echo 命令</h3><p>myvar=”hello”<br>echo $myvar       hello<br>echo “$myvar”    hello<br>echo ‘$myvar’    $myvar<br>echo \$myvar    $myvar</p>
+<h2 id="shell-脚本的构建"><a href="#shell-脚本的构建" class="headerlink" title="shell 脚本的构建"></a>shell 脚本的构建</h2><h3 id="使用多个命令"><a href="#使用多个命令" class="headerlink" title="使用多个命令"></a>使用多个命令</h3><p>使用多个命令<br>shell脚本的关键在于输入多个命令并处理每个命令的结果，甚至需要将<br>一个命令的结果传给另一个命令。<br>shell可以让你将多个命令串起来，一次执行完成。如果要两个命令一起<br>运行，可以把它们放在同一行中，彼此间用分号“；”隔开<br>echo 666 ; echo 555 ; echo 777</p>
+<h3 id="shell规则"><a href="#shell规则" class="headerlink" title="shell规则"></a>shell规则</h3><p>通常第一行是 #!/bin/bash<br>井号代表注释.<br>执行脚本 bash空格 脚本文件名</p>
+<h3 id="使用环境变量"><a href="#使用环境变量" class="headerlink" title="使用环境变量"></a>使用环境变量</h3><p>在脚本中，你可以在环境变量名称之前加上美元符（$）来使用<br>这些环境变量。下面的脚本演示了这种用法。</p>
+<p>#!/bin/bash</p>
+<h1 id="display-user-information-from-the-system"><a href="#display-user-information-from-the-system" class="headerlink" title="display user information from the system."></a>display user information from the system.</h1><p>echo “User info for userid: $USER”<br>echo UID: $UID<br>echo HOME: $HOME</p>
+<h3 id="用户变量"><a href="#用户变量" class="headerlink" title="用户变量"></a>用户变量</h3><p>用户变量可以是任何由字母、数字或下划线组成的文本字符串<br>，长度不超过20个。用户变量区分大小写。</p>
+<p>#!/bin/bash</p>
+<h1 id="testing-variables"><a href="#testing-variables" class="headerlink" title="testing variables"></a>testing variables</h1><p>days=10<br>guest=”Katie”<br>echo “$guest checked in $days days ago”<br>days=5<br>guest=”Jessica”<br>echo “$guest checked in $days days ago”<br>引用一个变量值时需要使用美元符，而引用变量来对其进行赋<br>值时则不要使用美元符。</p>
+<p>#!/bin/bash</p>
+<h1 id="assigning-a-variable-value-to-another-variable"><a href="#assigning-a-variable-value-to-another-variable" class="headerlink" title="assigning a variable value to another variable"></a>assigning a variable value to another variable</h1><p>value1=10<br>value2=$value1<br>echo The resulting value is $value2</p>
+<p>shell脚本中最有用的特性之一就是可以从命令输出中提取信息，<br>并将其赋给变量。<br>有两种方法可以将命令输出赋给变量：<br>反引号字符（`）<br>$()格式</p>
+<p>#!/bin/bash<br>testing=$(date)<br>echo “The date and time are: “ $testing</p>
+<p>#!/bin/bash</p>
+<h1 id="copy-the-usr-bin-directory-listing-to-a-log-file"><a href="#copy-the-usr-bin-directory-listing-to-a-log-file" class="headerlink" title="copy the /usr/bin directory listing to a log file"></a>copy the /usr/bin directory listing to a log file</h1><p>today=$(date +%y%m%d)<br>ls /usr/bin -al &gt; log.$todat</p>
+<h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><p>expr 命令  如：$ expr 1 + 5</p>
+<p>#!/bin/bash</p>
+<h1 id="An-example-of-using-the-expr-command"><a href="#An-example-of-using-the-expr-command" class="headerlink" title="An example of using the expr command"></a>An example of using the expr command</h1><p>var1=10<br>var2=20<br>var3=$(expr $var2 / $var1)<br>echo The result is $var3<br>在bash中，在将一个数学运算结果赋给某个变量时，可以用美元符和方括号<br>（$[ operation ]）将数学表达式围起来。</p>
+<p>#!/bin/bash<br>var1=100<br>var2=50<br>var3=45<br>var4=$[$var1 <em> ($var2 - $var3)]<br>echo The final result is $var4<br>浮点解决方案<br>用内建的bash计算器bc<br>bash计算器能够识别：<br>数字（整数和浮点数）<br>变量（简单变量和数组）<br>注释（以#或C语言中的/</em> */开始的行）<br>表达式<br>编程语句（例如if-then语句）<br>函数<br>利用scale设置bc的精度<br>在脚本中使用bc：<br>variable=$(echo “options; expression” | bc)</p>
+<p>#!/bin/bash<br>var1=$(echo “scale=4; 3.44 / 5” | bc)<br>echo The answer is $var1</p>
+<p>#!/bin/bash<br>var1=100<br>var2=45<br>var3=$(echo “scale=4; $var1 / $var2” | bc)<br>echo The answer for this is $var3</p>
+<p>#!/bin/bash<br>var1=10.46<br>var2=43.67<br>var3=33.2<br>var4=71<br>var5=$(bc &lt;&lt; EOF<br>scale = 4<br>a1 = ( $var1 <em> $var2)<br>b1 = ($var3 </em> $var4)<br>a1 + b1<br>EOF<br>)echo The final answer for this mess is $var5</p>
+<h3 id="使用结构化命令-if-then"><a href="#使用结构化命令-if-then" class="headerlink" title="使用结构化命令(if then)"></a>使用结构化命令(if then)</h3><p>使用if-then 语句<br>最基本的结构化命令就是if-then语句。if-then语句有如下格式。<br>if command<br>then<br>commands<br>fi<br>bash shell的if语句会运行if后面的那个命令。<br> 如果该命令的退出状态码是0（该命令成功运行），位于then部分的命令就会被执行<br> 如果该命令的退出状态码是其他值， then部分的命令就不会被执行，bash shell会继续执行<br>脚本中的下一个命令<br>fi 表示结束</p>
+<p>if-then-else 语句<br>if-then-else语句：<br>if command<br>then<br>commands<br>else<br>commands<br>fi</p>
+<p>嵌套的if-then语句位于主if-then-else语句的else代码块中。</p>
+<p>#!/bin/bash</p>
+<h1 id="Testing-nested-ifs"><a href="#Testing-nested-ifs" class="headerlink" title="Testing nested ifs"></a>Testing nested ifs</h1><p>#testuser=NoSuchUser</p>
+<p>#if grep $testuser /etc/passwd<br>then<br>echo “The user $testuser exists on this system.”<br>else<br>echo “The user $testuser does not exist on this system.”<br>if ls -d /home/$testuser/<br>then<br>echo “However, $testuser has a directory.”<br>fi<br>在elif语句中，紧跟其后的else语句属于elif<br>代码块。它们并不属于之前的if-then代码块<br>if command1<br>then<br>commands<br>elif command2<br>then<br>more commands<br>fi</p>
+<p>如果test命令中列出的条件成立，test命令就会退出并返回退出状态码0<br>如果不写test命令的condition部分，它会以非零<br>的退出状态码退出，并执行else语句</p>
+<p>bash shell提供了另一种条件测试方法，无需在if-then语句中声明<br>test命令。<br>if [空格condition空格 ]<br>then<br>commands<br>fi<br>test命令可以判断三类条件：<br>数值比较<br>字符串比较<br>文件比较</p>
+<h3 id="数值比较"><a href="#数值比较" class="headerlink" title="数值比较"></a>数值比较</h3><p>n1 -eq n2 是否相等<br>n1 -ge n2 n1是否大于等于n2<br>n1 -gt n2 ni是否大于n2<br>n1 -le n2 n1是否小于或等于n2<br>n1 -lt n2 n1是否小于n2<br>n1 -ne n2 n1是否不等于n2</p>
+<p>只能处理整数</p>
+<h3 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h3><p>-z str 长度是否为0<br>-n str 长度是否非0</p>
+<h3 id="文本处理工具sed"><a href="#文本处理工具sed" class="headerlink" title="文本处理工具sed"></a>文本处理工具sed</h3><p>把test 替换为 big test<br>echo “This is a test” | sed ‘s/test/big test/‘<br>使用多个编辑器命令<br>sed -e ‘s/brown/green/; s/dog/cat/‘ data1.txt<br>sed -e ‘</p>
+<blockquote>
+<p>s/brown/green/<br>s/fox/elephant/<br>s/dog/cat/‘ data1.txt<br>从文本中读取命令<br>sed -f script1.sed data1.txt</p>
+</blockquote>
+<p>替换标记<br>               s/pattern/replacement/flags</p>
+<p>数字，表明新文本将替换第几处模式匹配的地方；<br>g，表明新文本将会替换所有匹配的文本；<br>p，表明被替换后的行内容要打印出来；<br>w file，将替换的结果写到文件中。<br>两种形式都使用相同的格式来指定地址：<br>[address]command<br>也可以将特定地址的多个命令分组：<br>address {<br>      command1<br>      command2<br>      command3<br>}<br>sed编辑器会将文本流中的第一行编号为1<br>地址可以是单个行号，或是用起始行号、逗号以及结尾行号指定的一定区间范围内的行<br>用花括号将多条命令组合在一起</p>
+<p>$ sed ‘2{</p>
+<blockquote>
+<p>s/fox/elephant/<br>s/dog/cat/<br>}’ data1.txt<br>删除命令 d 会删除匹配指定寻址模式的所有行<br>$ sed ‘3d’ data6.txt<br>This is line number 1.<br>This is line number 2.<br>This is line number 4.<br>$ sed ‘2,3d’ data6.txt<br>This is line number 1.<br>This is line number 4.<br>$ sed ‘/number 1/d’ data6.txt<br>This is line number 2.<br>This is line number 3.<br>This is line number 4.</p>
+</blockquote>
+<p>也可以使用两个文本模式来删除某个区间内的行<br>指定的第一个模式会“打开”行删除功能，第二个模式会“关闭”行删除功能<br>sed ‘/1/,/3/d’ data7.txt<br>This is line number 4.</p>
+<p>插入（insert）命令（i）会在指定行前增加一个新行；<br>附加（append）命令（a）会在指定行后增加一个新行。</p>
+<h2 id="linux特殊符号"><a href="#linux特殊符号" class="headerlink" title="linux特殊符号"></a>linux特殊符号</h2><ol start="0">
+<li>&lt;输入重定向<br>输入重定向将文件的内容重定向到命令，而非将命令的输出重<br>定向到文件。<br>输入重定向符号是小于号（&lt;）：<br>内联输入重定向<br> 内联输入重定向符号是远小于号（&lt;&lt;）。除了这个符号，你必须指定一个文<br>本标记来划分输入数据的开始和结尾。<br>command &lt;&lt; marker<br>data<br>marker<br>$ wc &lt;&lt; EOF<blockquote>
+<p>test string 1<br>test string 2<br>test string 3<br>EOF<br>3 9 42<br>远小于号 右边的是控制开始和结束的符号</p>
+</blockquote>
+</li>
+</ol>
+<p>1．  &gt; 重定向输出符号。<br>最基本的重定向将命令的输出发送到一个文件中。bash shell用大<br>于号（&gt;）来完成这项功能：<br>command &gt; outputfile<br>2．  &gt;&gt;重定向输出符号，但有追加的功能。<br>（&gt;）会覆盖文件原有内容，可用双大于号（&gt;&gt;）来追加数据<br>3．  2&gt;错误重定向输出符号，覆盖原文件内容。<br>4．  2&gt;&gt;错误重定向输出符号，有文件内容追加的功能。<br>5．  * 匹配任意字符。<br>6．  ？匹配任意一个字符。<br>7．  | 管道符号<br>管道<br> 将一个命令的输出作为另一个命令的输入<br> command1 | command2<br> $cat /etc/passwd | sort | more</p>
+<p>8．  &amp; 后台进程符。<br>9．  &amp;&amp;l逻辑与符号。用法：命令1 &amp;&amp; 命令2  表示如果命令1执行成功，继续执行命令2。<br>10．|| 逻辑或符号。用法：命令1 | | 命令2 表示如果命令1执行成功，不执行命令2；但如果命令1执行失败才执行命令2。<br>11．逻辑非符号。排除指定范围。<br>12．[x-y]表示一定的范围。<br>13．# 注释符。<br>14．” ” 双引号表示把它所包含的内容作为普通字符，但<code></code> $  \ ‘ ‘ 几个符号除外。<br>15．’ ’ 单引号表示把它所包含的内容作为普通的字符，无特殊例外。<br>16．$ 变量符。<br>17．\ 转义字符。<br>18．’ ’倒引号，表示它所包含的内容。<br>19．；命令分隔符。<br>20．&lt; 重定向输入符。<br>21．（）表示整体执行命令。</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/06/20/linux下的特殊符号与shell编程/">linux下的特殊符号与shell编程</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 天河 的个人博客">天河</a></p>
+        <p><span>发布时间:</span>2018年06月20日 - 10时53分</p>
+        <p><span>最后更新:</span>2019年01月01日 - 23时14分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/20/linux下的特殊符号与shell编程/" title="linux下的特殊符号与shell编程">http://yoursite.com/2018/06/20/linux下的特殊符号与shell编程/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/06/20/linux下的特殊符号与shell编程/　　作者: 天河" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/06/20/C相关函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C相关函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/14/pwnable-writeup/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pwnable_writeup</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用指令"><span class="toc-number">1.</span> <span class="toc-text">常用指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开关机"><span class="toc-number">1.1.</span> <span class="toc-text">开关机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ls-列目录"><span class="toc-number">1.2.</span> <span class="toc-text">ls 列目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制"><span class="toc-number">1.3.</span> <span class="toc-text">cp 复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#which"><span class="toc-number">1.4.</span> <span class="toc-text">which</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">1.5.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#locate"><span class="toc-number">1.6.</span> <span class="toc-text">locate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-number">1.7.</span> <span class="toc-text">grep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useradd-adduser-添加用户"><span class="toc-number">1.8.</span> <span class="toc-text">useradd | adduser 添加用户</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useradd-–d-usr-sam-sam"><span class="toc-number"></span> <span class="toc-text">useradd –d /usr/sam sam</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useradd-s-bin-sh-g-group-–G-adm-root-gem"><span class="toc-number"></span> <span class="toc-text">useradd -s /bin/sh -g group –G adm,root gem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#userdel-删除用户"><span class="toc-number">0.1.</span> <span class="toc-text">userdel 删除用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usermod-用户修改"><span class="toc-number">0.2.</span> <span class="toc-text">usermod 用户修改</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#usermod-s-bin-ksh-d-home-z-–g-developer-sam"><span class="toc-number"></span> <span class="toc-text">usermod -s /bin/ksh -d /home/z –g developer sam</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd-修改密码"><span class="toc-number">0.1.</span> <span class="toc-text">passwd 修改密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#groupadd-添加用户组"><span class="toc-number">0.2.</span> <span class="toc-text">groupadd 添加用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#groupdel"><span class="toc-number">0.3.</span> <span class="toc-text">groupdel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#groupmod-修改组"><span class="toc-number">0.4.</span> <span class="toc-text">groupmod 修改组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#newgrp-切换用户主组"><span class="toc-number">0.5.</span> <span class="toc-text">newgrp 切换用户主组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux权限"><span class="toc-number">0.6.</span> <span class="toc-text">linux权限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#chown-dan-newfile"><span class="toc-number"></span> <span class="toc-text">chown dan newfile</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ls-l-newfile"><span class="toc-number"></span> <span class="toc-text">ls -l newfile</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#chown-dan-shared-newfile"><span class="toc-number"></span> <span class="toc-text">chown dan.shared newfile</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ls-l-newfile-1"><span class="toc-number"></span> <span class="toc-text">ls -l newfile</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置规范：“-g-群组列表-rwx-”，例如针对-mygroup1-的权限规范-rx-："><span class="toc-number"></span> <span class="toc-text">设置规范：“ g:[群组列表]:[rwx] ”，例如针对 mygroup1 的权限规范 rx ：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#file-acl-test1"><span class="toc-number"></span> <span class="toc-text">file: acl_test1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#owner-root"><span class="toc-number"></span> <span class="toc-text">owner: root</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#group-root"><span class="toc-number"></span> <span class="toc-text">group: root</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#压缩与解压缩"><span class="toc-number">0.1.</span> <span class="toc-text">压缩与解压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量"><span class="toc-number">0.2.</span> <span class="toc-text">环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim-用法"><span class="toc-number">0.3.</span> <span class="toc-text">vim 用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#echo-命令"><span class="toc-number">0.4.</span> <span class="toc-text">echo 命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shell-脚本的构建"><span class="toc-number">1.</span> <span class="toc-text">shell 脚本的构建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用多个命令"><span class="toc-number">1.1.</span> <span class="toc-text">使用多个命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell规则"><span class="toc-number">1.2.</span> <span class="toc-text">shell规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用环境变量"><span class="toc-number">1.3.</span> <span class="toc-text">使用环境变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#display-user-information-from-the-system"><span class="toc-number"></span> <span class="toc-text">display user information from the system.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户变量"><span class="toc-number">0.1.</span> <span class="toc-text">用户变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#testing-variables"><span class="toc-number"></span> <span class="toc-text">testing variables</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#assigning-a-variable-value-to-another-variable"><span class="toc-number"></span> <span class="toc-text">assigning a variable value to another variable</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#copy-the-usr-bin-directory-listing-to-a-log-file"><span class="toc-number"></span> <span class="toc-text">copy the /usr/bin directory listing to a log file</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数学运算"><span class="toc-number">0.1.</span> <span class="toc-text">数学运算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#An-example-of-using-the-expr-command"><span class="toc-number"></span> <span class="toc-text">An example of using the expr command</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用结构化命令-if-then"><span class="toc-number">0.1.</span> <span class="toc-text">使用结构化命令(if then)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Testing-nested-ifs"><span class="toc-number"></span> <span class="toc-text">Testing nested ifs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数值比较"><span class="toc-number">0.1.</span> <span class="toc-text">数值比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串比较"><span class="toc-number">0.2.</span> <span class="toc-text">字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本处理工具sed"><span class="toc-number">0.3.</span> <span class="toc-text">文本处理工具sed</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux特殊符号"><span class="toc-number">1.</span> <span class="toc-text">linux特殊符号</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'tianheshuangxue',
+      repo: 'tianheshuangxue.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/06/20/C相关函数/" title="上一篇: C相关函数">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/06/14/pwnable-writeup/" title="下一篇: pwnable_writeup">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/Android_debug/">android_debug</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/pwn小记/">pwn小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/Android真机调试/">android真机调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android_avd/">android_avd</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android_渗透/">android_渗透</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/js学习/">js学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/android防护/">android防护手段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/patcherex安装/">patcherex安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/乐理知识/">乐理知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/去除带有不良信息的广告/">去除带有不良信息的广告</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/内存取证工具Volatility/">Volatility安装使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/vmware安装/">vmware_note</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/10/unpacking/">unpacking</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/09/SymbolicExecution/">SymbolicExecution</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/汇编指令/">不认识的汇编指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/05/格式化字符串漏洞/">格式化字符串漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/php调试/">php调试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/实验吧writeup/">实验吧writeup</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/docker使用/">docker使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/pwnable-writeup2/">pwnable_writeup2</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/C相关函数/">C相关函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/linux下的特殊符号与shell编程/">linux下的特殊符号与shell编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/14/pwnable-writeup/">pwnable_writeup</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 天河
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 13;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
